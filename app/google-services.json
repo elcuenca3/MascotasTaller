@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "801877052977",
+    "project_id": "mascotastaller",
+    "storage_bucket": "mascotastaller.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801877052977:android:910c8db5f131f7ef5f0f10",
+        "android_client_info": {
+          "package_name": "com.example.mascotataller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801877052977-ut3migeo0tn25nt6f2roq6hgk6b6b73t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0T3eBqHg-LDCxL-yhyJfifxWDqhRv9ss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801877052977-ut3migeo0tn25nt6f2roq6hgk6b6b73t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -9,6 +9,5 @@ class ventana02 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ventana02)
 
-        lista.
     }
 }

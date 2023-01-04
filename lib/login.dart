@@ -1,117 +1,122 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const Login());
-
-class Login extends StatelessWidget {
-  const Login({Key? key}) : super(key: key);
-
-  static const String _title = '';
+class MyLogin extends StatefulWidget {
+  const MyLogin({Key? key}) : super(key: key);
 
   @override
+  _MyLoginState createState() => _MyLoginState();
+}
+
+class _MyLoginState extends State<MyLogin> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: _title,
-      home: Scaffold(
-        appBar: AppBar(
-          //title: Text("Widgets"),
-          //centerTitle: true,
-          title: Image.asset('logo2.png', fit: BoxFit.cover, height: 50),
-          backgroundColor: Colors.deepOrangeAccent,
-        ),
-        body: const MyStatefulWidget(),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/login2.png'), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Stack(children: [
+          Container(
+            padding: const EdgeInsets.only(left: 35, top: 80),
+            child: const Text(
+              "Bienvenido",
+              style: TextStyle(color: Colors.white, fontSize: 33),
+            ),
+          ),
+          SingleChildScrollView(
+            child: Container(
+              padding: EdgeInsets.only(
+                  right: 35,
+                  left: 35,
+                  top: MediaQuery.of(context).size.height * 0.5),
+              child: Column(children: [
+                TextField(
+                  decoration: InputDecoration(
+                    fillColor: Colors.grey.shade100,
+                    filled: true,
+                    hintText: 'Email',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextField(
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    fillColor: Colors.grey.shade100,
+                    filled: true,
+                    hintText: 'Contraseña',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const Text(
+                      'Login',
+                      style: TextStyle(
+                        color: Color(0xff4c505b),
+                        fontSize: 27,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    CircleAvatar(
+                      radius: 30,
+                      backgroundColor: const Color(0xff4c505b),
+                      child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {},
+                        icon: const Icon(Icons.arrow_forward),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, 'register');
+                        },
+                        child: const Text(
+                          'Registrate!',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 18,
+                            color: Color(0xff4c505b),
+                          ),
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          'Olvide mi contraseña',
+                          style: TextStyle(
+                            decoration: TextDecoration.underline,
+                            fontSize: 18,
+                            color: Color(0xff4c505b),
+                          ),
+                        ),
+                      ),
+                    ]),
+              ]),
+            ),
+          ),
+        ]),
       ),
     );
-  }
-}
-
-class MyStatefulWidget extends StatefulWidget {
-  const MyStatefulWidget({Key? key}) : super(key: key);
-
-  @override
-  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
-}
-
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-        padding: const EdgeInsets.all(10),
-        child: ListView(
-          children: <Widget>[
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: Image(
-                  image: NetworkImage('https://raw.githubusercontent.com/RommelOjeda/Movilesproyecto/main/Proyecto/assets/logoapp.png'),
-                  height: 140,
-                ),
-              ),
-            Container(
-                alignment: Alignment.center,
-                padding: const EdgeInsets.all(10),
-                child: const Text(
-                  'Iniciar Sesión',
-                  style: TextStyle(fontSize: 20),
-                )),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: nameController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Correo Electrónico',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Contraseña',
-                ),
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('',),),
-            Container(
-
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  child: const Text('Ingresar'),
-                  onPressed: () {
-                    print(nameController.text);
-                    print(passwordController.text);
-                  },
-                  style: ElevatedButton.styleFrom(primary: Colors.deepOrangeAccent,onPrimary: Colors.black),
-
-                )
-
-            ),
-            Row(
-              children: <Widget>[
-                const Text('No tienes una cuenta?'),
-                TextButton(
-                  child: const Text(
-                    'Registrate!',
-                    style: TextStyle(fontSize: 20,color: Colors.deepOrangeAccent),
-                  ),
-                  onPressed: () {
-                    //signup screen
-                  },
-                )
-              ],
-              mainAxisAlignment: MainAxisAlignment.center,
-            ),
-          ],
-        ));
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'splash.dart';
 import 'login.dart';
+import 'registro.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,8 +21,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: <String, WidgetBuilder>{
-        "/login" :(BuildContext context)=> Login(),
-        "/inicio" :(BuildContext context)=> MyHomePage(title: "title"),
+        "/login" :(BuildContext context)=> MyLogin(),
+        "/regis" :(BuildContext context)=> MyRegister(),
+        "/inicio" :(BuildContext context)=> MyHomePage(title: "title")
+
+
       },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -73,6 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 button1,
+                button2
               ],
             ),
             Column(

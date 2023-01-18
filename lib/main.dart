@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto/homepage.dart';
 import 'splash.dart';
 import 'login.dart';
 import 'registro.dart';
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Firebase.initializeApp(
+      options: const FirebaseOptions(
+    apiKey: 'AIzaSyAz6sg4EOZIozPYt420vCmE9-u6J60Axk4',
+    appId: '1:834291257005:android:49b8553fc28b8924c08024',
+    messagingSenderId: '834291257005',
+    projectId: 'puente-paraiso',
+    storageBucket: 'puente-paraiso.appspot.com',
+  ));
+  return runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -20,13 +32,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: <String, WidgetBuilder>{
-        "/login" :(BuildContext context)=> MyLogin(),
-        "/regis" :(BuildContext context)=> MyRegister(),
-        "/inicio" :(BuildContext context)=> MyHomePage(title: "title")
-
-
-      },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -34,6 +39,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+
   final String title;
 
   @override
@@ -41,53 +47,50 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
-    //boton 1 servicios
-    final button1 =  ElevatedButton(
-      child: Text("Login"),
-      style: ElevatedButton.styleFrom(primary: Colors.deepOrange,onPrimary: Colors.black),
-      onPressed: (){
-        print("/login");
-        Navigator.pushNamed(context, "/login");
-      },
-    );
-    final button2 =  ElevatedButton(
-      child: Text("Registro"),
-      style: ElevatedButton.styleFrom(primary: Colors.deepOrange,onPrimary: Colors.black),
-      onPressed: (){
-        print("/regis");
-        Navigator.pushNamed(context, "/regis");
-      },
-    );
-
     return Scaffold(
-      appBar: AppBar(
-        //title: Text("Widgets"),
-        //centerTitle: true,
-        //title: Image.asset('logo2.png', fit: BoxFit.cover, height: 50),
-        backgroundColor: Colors.deepOrangeAccent,
-      ),
+      backgroundColor: Color.fromARGB(255, 243, 234, 225),
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                button1,
-                button2
-              ],
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[
-                button2,
-
-              ],
-            ),
-          ],
+        child: GestureDetector(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            children: [
+              AppBar(
+                backgroundColor: Color.fromRGBO(231, 134, 83, 53),
+                automaticallyImplyLeading: false,
+                title: Text(
+                  'Puente Arcoiris',
+                  style: TextStyle(fontSize: 25),
+                ),
+                actions: [],
+                centerTitle: false,
+                elevation: 2,
+              ),
+              Image.asset(
+                'assets/logoapp.png',
+                width: 303,
+                height: 248,
+                fit: BoxFit.cover,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyLogin()),
+                    );
+                  },
+                  child: Text("Login")),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyRegister()),
+                    );
+                  },
+                  child: Text("Registro")),
+            ],
+          ),
         ),
       ),
     );

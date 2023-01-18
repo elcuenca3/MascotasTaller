@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto/homepage.dart';
+import 'package:proyecto/registro.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -75,7 +77,13 @@ class _MyLoginState extends State<MyLogin> {
                       backgroundColor: const Color(0xff4c505b),
                       child: IconButton(
                         color: Colors.white,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => homePage()),
+                          );
+                        },
                         icon: const Icon(Icons.arrow_forward),
                       ),
                     ),
@@ -89,7 +97,11 @@ class _MyLoginState extends State<MyLogin> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'register');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => MyRegister()),
+                          );
                         },
                         child: const Text(
                           'Registrate!',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyecto/login.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
@@ -10,10 +11,11 @@ class MyRegister extends StatefulWidget {
 class _MyRegisterState extends State<MyRegister> {
   @override
   Widget build(BuildContext context) {
-    return Container(     decoration: const BoxDecoration(
-      image: DecorationImage(
-          image: AssetImage('assets/register2.png'), fit: BoxFit.cover),
-    ),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage('assets/register2.png'), fit: BoxFit.cover),
+      ),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -116,7 +118,10 @@ class _MyRegisterState extends State<MyRegister> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, 'login');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MyLogin()),
+                          );
                         },
                         child: const Text(
                           'Login',

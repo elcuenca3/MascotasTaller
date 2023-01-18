@@ -26,7 +26,7 @@ class _SplashState extends State<Splash>{
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image(image: AssetImage("logoapp.png")),
+            Image(image: AssetImage("assets/logoapp.png")),
             //Container(height: 50, width: 50, color: Colors.blue,),
             Container(
               child: Text('\n Puente Arcoiris'

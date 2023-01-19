@@ -1,3 +1,4 @@
+import 'package:MascotasTaller/ejemplo.dart';
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/homepage.dart';
 import 'splash.dart';
@@ -89,6 +90,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     );
                   },
                   child: Text("Registro")),
+                  ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Servicios()),
+                    );
+                  },
+                  child: Text("Servicios")),
             ],
           ),
         ),

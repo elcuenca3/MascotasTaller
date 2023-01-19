@@ -26,11 +26,10 @@ class _homePageState extends State<homePage> {
       key: scaffoldKey,
       backgroundColor: Colors.amber,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        //backgroundColor: Colors.amber,
         automaticallyImplyLeading: false,
-        title: Text(
-          'Hello World',
-        ),
+        title: Image.asset('assets/logo2.png', fit: BoxFit.cover, height: 60),
+        backgroundColor: Colors.deepOrangeAccent,
         actions: [],
         centerTitle: false,
         elevation: 2,
@@ -53,26 +52,26 @@ class _homePageState extends State<homePage> {
                     child: Stack(
                       children: [
                         Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 50),
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 25),
                           child: PageView(
                             controller: pageViewController ??=
                                 PageController(initialPage: 0),
                             scrollDirection: Axis.horizontal,
                             children: [
                               Image.network(
-                                'https://picsum.photos/seed/236/600',
+                                'https://n9.cl/zeukq',
                                 width: 100,
                                 height: 100,
                                 fit: BoxFit.cover,
                               ),
                               Image.network(
-                                'https://picsum.photos/seed/792/600',
+                                'https://n9.cl/xe3lj',
                                 width: 100,
                                 height: 100,
                                 fit: BoxFit.cover,
                               ),
                               Image.network(
-                                'https://picsum.photos/seed/705/600',
+                                'https://n9.cl/ms42l',
                                 width: 100,
                                 height: 100,
                                 fit: BoxFit.cover,

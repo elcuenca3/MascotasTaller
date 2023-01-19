@@ -1,4 +1,4 @@
-# proyecto
+# MascotasTaller
 
 A new Flutter project.
 

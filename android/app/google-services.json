@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:834291257005:android:49b8553fc28b8924c08024",
         "android_client_info": {
-          "package_name": "com.example.proyecto"
+          "package_name": "com.example.MascotasTaller"
         }
       },
       "oauth_client": [
@@ -34,7 +34,7 @@
               "client_id": "834291257005-0rql0934qbu69kakds7ut6oetkmr14ol.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.proyecto"
+                "bundle_id": "com.example.MascotasTaller"
               }
             }
           ]
@@ -70,7 +70,7 @@
               "client_id": "834291257005-0rql0934qbu69kakds7ut6oetkmr14ol.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.example.proyecto"
+                "bundle_id": "com.example.MascotasTaller"
               }
             }
           ]

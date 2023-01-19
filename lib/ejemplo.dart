@@ -1,15 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:MascotasTaller/login.dart';
-import 'package:MascotasTaller/registro.dart';
 
-class homePage extends StatefulWidget {
-  const homePage({Key? key}) : super(key: key);
+import 'package:flutter/material.dart';
+
+
+class HomePageWidget extends StatefulWidget {
+  const HomePageWidget({Key? key}) : super(key: key);
 
   @override
-  _homePageState createState() => _homePageState();
+  _HomePageWidgetState createState() => _HomePageWidgetState();
 }
 
-class _homePageState extends State<homePage> {
+class _HomePageWidgetState extends State<HomePageWidget> {
   PageController? pageViewController;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -26,10 +26,11 @@ class _homePageState extends State<homePage> {
       key: scaffoldKey,
       backgroundColor: Colors.amber,
       appBar: AppBar(
-        backgroundColor: Colors.amber,
+        backgroundColor:  Colors.amber,
         automaticallyImplyLeading: false,
         title: Text(
           'Hello World',
+          
         ),
         actions: [],
         centerTitle: false,
@@ -83,9 +84,10 @@ class _homePageState extends State<homePage> {
                         Align(
                           alignment: AlignmentDirectional(0, 1),
                           child: Padding(
-                              padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
-                              child: Text('parentesco')),
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                            child: Text('parentesco')
+                          ),
                         ),
                       ],
                     ),
@@ -94,7 +96,11 @@ class _homePageState extends State<homePage> {
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
-                children: [],
+                children: [
+                
+              
+                  
+                ],
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -103,7 +109,7 @@ class _homePageState extends State<homePage> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber,
+                    color: Colors.amber,
                     ),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -114,7 +120,7 @@ class _homePageState extends State<homePage> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber,
+                                            color: Colors.amber,
                     ),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -125,7 +131,7 @@ class _homePageState extends State<homePage> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: Colors.amber,
+                    color: Colors.amber,
                     ),
                     child: Card(
                       clipBehavior: Clip.antiAliasWithSaveLayer,

@@ -1,6 +1,6 @@
 {
-    "name": "proyecto",
-    "short_name": "proyecto",
+    "name": "MascotasTaller",
+    "short_name": "MascotasTaller",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

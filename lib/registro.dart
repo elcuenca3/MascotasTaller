@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/login.dart';
+import 'package:MascotasTaller/login.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);

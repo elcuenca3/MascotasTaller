@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/main.dart';
+import 'package:MascotasTaller/main.dart';
 
 class Splash extends StatefulWidget{
   const Splash({Key? Key }): super(key: Key);

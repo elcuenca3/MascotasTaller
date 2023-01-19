@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/homepage.dart';
-import 'package:proyecto/registro.dart';
+import 'package:MascotasTaller/homepage.dart';
+import 'package:MascotasTaller/registro.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);

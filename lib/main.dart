@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:proyecto/homepage.dart';
+import 'package:MascotasTaller/homepage.dart';
 import 'splash.dart';
 import 'login.dart';
 import 'registro.dart';
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Avance de Proyecto',
+      title: 'Avance de MascotasTaller',
       home: Splash(),
       theme: ThemeData(
         primarySwatch: Colors.blue,

@@ -50,8 +50,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-      final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
+    final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20,fontFamily: 'Raleway'));
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 234, 225),
       body: Center(
@@ -77,30 +77,35 @@ class _MyHomePageState extends State<MyHomePage> {
                 fit: BoxFit.cover,
               ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyLogin()),
-                    );
-                  },
-                  child: Text("Login")),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyLogin()),
+                  );
+                },
+                child: Text("Login"),
+                style: style,
+              ),
               ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyRegister()),
-                    );
-                  },
-                  child: Text("Registro")),
-                  ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Servicios()),
-                    );
-                  },
-                  child: Text("Servicios"),
-                  style: style,),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyRegister()),
+                  );
+                },
+                child: Text("Registro"),
+                style: style,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Servicios()),
+                  );
+                },
+                child: Text("Servicios"),
+                style: style,
+              ),
             ],
           ),
         ),

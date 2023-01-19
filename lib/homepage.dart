@@ -56,9 +56,32 @@ class _homePageState extends State<homePage> {
             ),
           ),
           SizedBox(height: 20),
+          Center(
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ElevatedButton(onPressed: () {}, child: Text("1")),
+                ElevatedButton(onPressed: () {}, child: Text("2")),
+                ElevatedButton(onPressed: () {}, child: Text("3"))
+              ],
+            ),
+          ),
         ],
       ),
     ),
+    SingleChildScrollView(
+      child: Text("hola son la pantalla 2")
+    ),
+    SingleChildScrollView(
+      child: Text("hola son la pantalla 3")
+    ),
+    SingleChildScrollView(
+      child: Text("hola son la pantalla 4")
+    ),
+    SingleChildScrollView(
+      child: Text("hola son la pantalla 5")
+    ),
+    
   ];
 
   @override

@@ -19,7 +19,8 @@ class _ServiciosState extends State<Servicios> {
         backgroundColor: Color.fromRGBO(231, 134, 83, 53),
         automaticallyImplyLeading: false,
         title: Text(
-          'Hello World',
+          'Puente Arcoiris',
+          style: TextStyle(fontSize: 25),
         ),
         actions: [],
         centerTitle: false,
@@ -34,7 +35,7 @@ class _ServiciosState extends State<Servicios> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(20, 12, 0, 12),
+                  padding: EdgeInsetsDirectional.fromSTEB(40, 40, 0, 40),
                   child: Text('-Servicios-'),
                 ),
               ],
@@ -97,7 +98,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Funerario',
                                 ),
                               ),
                             ],
@@ -155,7 +156,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Peluqueria',
                                 ),
                               ),
                             ],
@@ -213,7 +214,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Alimentos',
                                 ),
                               ),
                             ],
@@ -271,7 +272,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Tienda',
                                 ),
                               ),
                             ],
@@ -329,7 +330,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Obiturio',
                                 ),
                               ),
                             ],
@@ -387,7 +388,7 @@ class _ServiciosState extends State<Servicios> {
                                 padding:
                                     EdgeInsetsDirectional.fromSTEB(8, 4, 0, 0),
                                 child: Text(
-                                  'Product Name',
+                                  'Trasporte',
                                 ),
                               ),
                             ],

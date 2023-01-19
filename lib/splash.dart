@@ -28,10 +28,6 @@ class _SplashState extends State<Splash>{
           children: [
             Image(image: AssetImage("assets/logoapp.png")),
             //Container(height: 50, width: 50, color: Colors.blue,),
-            Container(
-              child: Text('\n Puente Arcoiris'
-              ),
-            )
           ],
         ),
       ),

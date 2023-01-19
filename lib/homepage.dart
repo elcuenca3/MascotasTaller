@@ -83,66 +83,13 @@ class _homePageState extends State<homePage> {
                           alignment: AlignmentDirectional(0, 1),
                           child: Padding(
                               padding:
-                                  EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                                  EdgeInsetsDirectional.fromSTEB(40, 40, 0, 10),
                               child: Text('parentesco')),
                         ),
                       ],
                     ),
                   ),
                 ),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                    ),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                    ),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                    ),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                    ),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                    ),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                    ),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                    ),
-                    child: Card(
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      color: Color(0xFFF5F5F5),
-                    ),
-                  ),
-                ],
               ),
             ],
           ),

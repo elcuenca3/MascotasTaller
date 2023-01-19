@@ -50,6 +50,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+      final ButtonStyle style =
+        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20));
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 234, 225),
       body: Center(
@@ -97,7 +99,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       MaterialPageRoute(builder: (context) => Servicios()),
                     );
                   },
-                  child: Text("Servicios")),
+                  child: Text("Servicios"),
+                  style: style,),
             ],
           ),
         ),

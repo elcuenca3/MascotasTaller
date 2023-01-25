@@ -1,5 +1,8 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:card_swiper/card_swiper.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:MascotasTaller/login.dart';
 import 'package:MascotasTaller/registro.dart';
 
@@ -22,6 +25,9 @@ class _homePageState extends State<homePage> {
   PageController? pageViewController;
   final _unfocusNode = FocusNode();
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static List<Widget> _widgetOptions = <Widget>[];
 
   @override
   void dispose() {
@@ -29,19 +35,35 @@ class _homePageState extends State<homePage> {
     super.dispose();
   }
 
-  int _selectedIndex = 0;
+  Future<Map<String, dynamic>?> selectFromFirebase(
+      String tipoPlan, String tipoTipo) async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection("Servicios")
+        .doc(
+          tipoPlan,
+        ).get();
+
+    Map<String, dynamic>? data = snapshot.data();
+    print(data);
+    print(data!['valor'] ?? "no hay data");
+
+    return data;
+  }
+
+  int _selectedIndex = 1; // pagina que se muestra
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
   }
 
-  static final List<Widget> _widgetOptions = <Widget>[
-
-    SingleChildScrollView(
-        child: Text("hola son la pantalla BACK")
-    ),
-    SingleChildScrollView(
+  _homePageState() {
+    var servicio1 = selectFromFirebase('Servicios', 'Alimentacion');
+    var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
+    var servicio3 = selectFromFirebase('Servicios', 'Obituario');
+    _widgetOptions = <Widget>[
+      SingleChildScrollView(child: Text("hola son la pantalla BACK")),
+      SingleChildScrollView(
         child: Column(
           children: [
             Container(
@@ -74,17 +96,35 @@ class _homePageState extends State<homePage> {
             ),
           ],
         ),
-    ),
-    SingleChildScrollView(
-        child: Text("hola son la pantalla SERVICIOS")
-    ),
-  ];
+      ),
+      SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: FutureBuilder(
+            future: servicio1,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(children: [
+                  Text(
+                    'Paseos paquete plata',
+                    style: optionStyle,
+                  ),
+                ]);
+              } else if (snapshot.hasError) {
+                Text("No hay datos disponibles");
+              }
+              return CircularProgressIndicator();
+            },
+          ),
+        ),
+      ),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
-    routes: <String, WidgetBuilder>{
-      "/servicio": (BuildContext context) => Servicios(),
-    };
+    routes:
+    <String, WidgetBuilder>{};
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.amber,

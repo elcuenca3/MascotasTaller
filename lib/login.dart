@@ -62,23 +62,26 @@ class _MyLoginState extends State<MyLogin> {
   }
 
   Widget _submitButton() {
-    return ElevatedButton(
+    return Padding(
+        padding: EdgeInsets.all(16.0),child:ElevatedButton(
       onPressed:
           isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
       child: Text(isLogin ? "Login" : "Register"),
-    );
+    ));
   }
 
   Widget entrar() {
-    return ElevatedButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => homePage()),
-        );
-      },
-      child: Text("Login"),
-    );
+    return Padding(
+        padding: EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => homePage()),
+            );
+          },
+          child: Text("Login_Sin_correo"),
+        ));
   }
 
   Widget _loginOrRegisterButton() {
@@ -88,7 +91,7 @@ class _MyLoginState extends State<MyLogin> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? "Register instead" : "Login instead"),
+      child: Text(isLogin ? "Register estado" : "Login Estado"),
     );
   }
 
@@ -119,27 +122,32 @@ class _MyLoginState extends State<MyLogin> {
                           fontStyle: FontStyle.italic),
                     ),
                     CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 95,
+                      radius: 100 ,
+                      backgroundColor:  Colors.transparent,
                       backgroundImage: AssetImage("assets/logoapp.png"),
                     ),
-                    Column(
-                      children: [
-                        Padding(
+                    Padding(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 50.0),
+                              child: _entryField("Correo", _controllerEmail)),
+                          SizedBox(
+                            height: 30,
+                          ),
+                          Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 50.0),
-                            child: _entryField("Correo", _controllerEmail)),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
-                          child: _entryField("Contraseña", _controllerPassword),
-                        ),
-                        _submitButton(),
-                        entrar(),
-                        _loginOrRegisterButton(),
-                      ],
+                            child:
+                                _entryField("Contraseña", _controllerPassword),
+                          ),
+                          _submitButton(),
+                          entrar(),
+                          _loginOrRegisterButton(),
+                        ],
+                      ),
                     ),
                   ],
                 ),

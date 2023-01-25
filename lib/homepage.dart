@@ -36,12 +36,12 @@ class _homePageState extends State<homePage> {
   }
 
   Future<Map<String, dynamic>?> selectFromFirebase(
-      String tipoPlan, String tipoTipo) async {
+      String tipoPlan, String locales) async {
     final snapshot = await FirebaseFirestore.instance
         .collection("Servicios")
         .doc(
           tipoPlan,
-        ).get();
+        ).collection("local").doc(locales).get();
 
     Map<String, dynamic>? data = snapshot.data();
     print(data);
@@ -119,7 +119,73 @@ class _homePageState extends State<homePage> {
         ),
       ),
       SingleChildScrollView(
-      child: Text("Pagina de Promos"),
+      child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: FutureBuilder(
+            future: servicio1,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children: [
+                    Text(
+                      'Alimentacion',
+                      style: optionStyle,
+                    ),
+                    Row(
+                      children: [
+                        Container(
+                          width: 100,
+                          child: Image(
+                            image: AssetImage("assets/logoapp.png"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  "Valor: ",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(snapshot.data!["valor"].toString() ??
+                                    "Sin datos")
+                              ],
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "nombre: ",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text("1 ")
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  
+                  ],
+                );
+              } else if (snapshot.hasError) {
+                Text("No hay datos disponibles");
+              }
+              return CircularProgressIndicator();
+            },
+          ),
+        ),
       ),
     ];
   }

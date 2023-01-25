@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:MascotasTaller/login.dart';
-import 'package:MascotasTaller/registro.dart';
+import 'package:MascotasTaller/acceso/login.dart';
+import 'package:MascotasTaller/acceso/registro.dart';
 
-import 'ejemplo.dart';
+import 'pruebas/ejemplo.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -90,7 +90,12 @@ class _homePageState extends State<homePage> {
                 children: [
                   ElevatedButton(onPressed: () {}, child: Text("1")),
                   ElevatedButton(onPressed: () {}, child: Text("2")),
-                  ElevatedButton(onPressed: () {}, child: Text("3"))
+                  ElevatedButton(onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Servicios()),
+                );
+              }, child: Text("Servicios"))
                 ],
               ),
             ),

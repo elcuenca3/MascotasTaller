@@ -1,7 +1,7 @@
 
-import 'package:MascotasTaller/auth.dart';
+import 'package:MascotasTaller/acceso/auth.dart';
 import 'package:MascotasTaller/homepage.dart';
-import 'package:MascotasTaller/login.dart';
+import 'package:MascotasTaller/acceso/login.dart';
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/main.dart';
 

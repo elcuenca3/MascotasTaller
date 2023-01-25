@@ -1,10 +1,10 @@
-import 'package:MascotasTaller/ejemplo.dart';
-import 'package:MascotasTaller/widget_tree.dart';
+import 'package:MascotasTaller/pruebas/ejemplo.dart';
+import 'package:MascotasTaller/acceso/widget_tree.dart';
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/homepage.dart';
 import 'splash.dart';
-import 'login.dart';
-import 'registro.dart';
+import 'acceso/login.dart';
+import 'acceso/registro.dart';
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 

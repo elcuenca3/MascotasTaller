@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/homepage.dart';
-import 'package:MascotasTaller/registro.dart';
+import 'package:MascotasTaller/acceso/registro.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'auth.dart';
 

@@ -87,19 +87,33 @@ class _homePageState extends State<homePage> {
             ),
             SizedBox(height: 20),
             Center(
-              child: Row(
+              child: Column(
+                children: [
+                Text(
+                '¿Qué es Puente Arcoíris?',
+                style: optionStyle,
+              ),
+              Padding( padding: const EdgeInsets.only(bottom: 25, top: 25),
+                child:Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  ElevatedButton(onPressed: () {}, child: Text("1")),
-                  ElevatedButton(onPressed: () {}, child: Text("2")),
-                  ElevatedButton(onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Servicios()),
-                );
-              }, child: Text("Servicios"))
+                  Text("Ofrecemos el primer cementerio\n "
+                      "de mascotas en la ciudad de Loja\n"
+                      "el mismo que fue concebido para\n"
+                      "dar ese último adiós a nuestras\n"
+                      "mascotas que han formado parte\n"
+                      "de nuestras vidas y con quienes\n"
+                      "hemos compartido momentos felices.\n"
+                      "Conoce nuestra oferta de productos\n"
+                      "y servicios relacionados a\n"
+                      "nuestras mascotas\n",
+                      style:TextStyle(fontStyle: FontStyle.italic)),
+                  Image.asset("assets/imgmain.png")
                 ],
-              ),
+              ), )
+
+              ],
+            ),
             ),
           ],
         ),

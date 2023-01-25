@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:MascotasTaller/login.dart';
 import 'package:MascotasTaller/registro.dart';
 
+import 'ejemplo.dart';
+
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
 
@@ -35,57 +37,54 @@ class _homePageState extends State<homePage> {
   }
 
   static final List<Widget> _widgetOptions = <Widget>[
+
     SingleChildScrollView(
-      child: Column(
-        children: [
-          Container(
-            width: double.infinity,
-            height: 250,
-            child: Swiper(
-              viewportFraction: 0.8,
-              scale: 0.9,
-              itemBuilder: (BuildContext context, int index) {
-                return Image.asset(
-                  _images[index],
-                  fit: BoxFit.fill,
-                );
-              },
-              itemCount: 3,
-              pagination: SwiperPagination(),
-              control: SwiperControl(),
+        child: Text("hola son la pantalla BACK")
+    ),
+    SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              width: double.infinity,
+              height: 250,
+              child: Swiper(
+                viewportFraction: 0.8,
+                scale: 0.9,
+                itemBuilder: (BuildContext context, int index) {
+                  return Image.asset(
+                    _images[index],
+                    fit: BoxFit.fill,
+                  );
+                },
+                itemCount: 3,
+                pagination: SwiperPagination(),
+                control: SwiperControl(),
+              ),
             ),
-          ),
-          SizedBox(height: 20),
-          Center(
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ElevatedButton(onPressed: () {}, child: Text("1")),
-                ElevatedButton(onPressed: () {}, child: Text("2")),
-                ElevatedButton(onPressed: () {}, child: Text("3"))
-              ],
+            SizedBox(height: 20),
+            Center(
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ElevatedButton(onPressed: () {}, child: Text("1")),
+                  ElevatedButton(onPressed: () {}, child: Text("2")),
+                  ElevatedButton(onPressed: () {}, child: Text("3"))
+                ],
+              ),
             ),
-          ),
-        ],
-      ),
+          ],
+        ),
     ),
     SingleChildScrollView(
-      child: Text("hola son la pantalla 2")
+        child: Text("hola son la pantalla SERVICIOS")
     ),
-    SingleChildScrollView(
-      child: Text("hola son la pantalla 3")
-    ),
-    SingleChildScrollView(
-      child: Text("hola son la pantalla 4")
-    ),
-    SingleChildScrollView(
-      child: Text("hola son la pantalla 5")
-    ),
-    
   ];
 
   @override
   Widget build(BuildContext context) {
+    routes: <String, WidgetBuilder>{
+      "/servicio": (BuildContext context) => Servicios(),
+    };
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Colors.amber,
@@ -103,13 +102,8 @@ class _homePageState extends State<homePage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Color.fromRGBO(254, 246, 234, 1),
-            icon: Icon(Icons.accessible_forward_rounded),
-            label: 'Paseos',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color.fromRGBO(254, 246, 234, 1),
-            icon: Icon(Icons.desktop_access_disabled),
-            label: 'Muerte',
+            icon: ImageIcon(AssetImage("assets/iconos/back.png")),
+            label: 'Atras',
           ),
           BottomNavigationBarItem(
             backgroundColor: Color.fromRGBO(254, 246, 234, 1),
@@ -119,12 +113,7 @@ class _homePageState extends State<homePage> {
           BottomNavigationBarItem(
             backgroundColor: Color.fromRGBO(254, 246, 234, 1),
             icon: Icon(Icons.add_circle),
-            label: 'Veterinaria',
-          ),
-          BottomNavigationBarItem(
-            backgroundColor: Color.fromRGBO(254, 246, 234, 1),
-            icon: Icon(Icons.accessibility),
-            label: 'Baños',
+            label: 'Servicios',
           ),
         ],
         selectedItemColor: Color.fromRGBO(249, 142, 44, 1),

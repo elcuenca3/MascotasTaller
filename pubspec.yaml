@@ -51,6 +51,7 @@ flutter:
   assets:
   - assets/
   - assets/slider/
+  - assets/iconos/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

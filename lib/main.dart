@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
       title: 'Avance de MascotasTaller',
       home: Splash(),
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
       ),
       routes: <String, WidgetBuilder>{
         "/inicio": (BuildContext context) => MyHomePage(title: 'Flutter'),

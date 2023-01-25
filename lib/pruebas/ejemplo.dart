@@ -15,17 +15,6 @@ class _ServiciosState extends State<Servicios> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: Color.fromARGB(255, 243, 234, 225),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(231, 134, 83, 53),
-        automaticallyImplyLeading: false,
-        title: Text(
-          'Puente Arcoiris',
-          style: TextStyle(fontSize: 25),
-        ),
-        actions: [],
-        centerTitle: false,
-        elevation: 2,
-      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
@@ -36,7 +25,10 @@ class _ServiciosState extends State<Servicios> {
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(40, 40, 0, 40),
-                  child: Text('-Servicios-'),
+                  child: Text('Servicios', style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 30)),
                 ),
               ],
             ),
@@ -79,8 +71,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1491637639811-60e2756cc1c7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjR8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/fune.png',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,
@@ -137,8 +129,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjh8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/pelu.jpg',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,
@@ -195,8 +187,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1545127398-14699f92334b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzd8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/ali.jpg',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,
@@ -253,8 +245,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/tien.jpg',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,
@@ -311,8 +303,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1571782742478-0816a4773a10?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTd8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/obi.jpg',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,
@@ -369,8 +361,8 @@ class _ServiciosState extends State<Servicios> {
                                   topLeft: Radius.circular(8),
                                   topRight: Radius.circular(8),
                                 ),
-                                child: Image.network(
-                                  'https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8ODN8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60',
+                                child: Image.asset(
+                                  'assets/ser/tran.png',
                                   width: 100,
                                   height: 110,
                                   fit: BoxFit.cover,

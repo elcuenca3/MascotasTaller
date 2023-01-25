@@ -127,7 +127,7 @@ class _homePageState extends State<homePage> {
     <String, WidgetBuilder>{};
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: Colors.amber,
+      backgroundColor:  Color.fromRGBO(254, 246, 234, 1),
       appBar: AppBar(
         //backgroundColor: Colors.amber,
         automaticallyImplyLeading: false,

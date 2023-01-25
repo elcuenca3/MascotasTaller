@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/homepage.dart';
 import 'package:MascotasTaller/registro.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'auth.dart';
 
 class MyLogin extends StatefulWidget {
   const MyLogin({Key? key}) : super(key: key);
@@ -10,6 +12,86 @@ class MyLogin extends StatefulWidget {
 }
 
 class _MyLoginState extends State<MyLogin> {
+  String? errorMessage = '';
+  bool isLogin = true;
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Auth().signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Future<void> createUserWithEmailAndPassword() async {
+    try {
+      await Auth().createUserWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
+  Widget _title() {
+    return const Text("Auth");
+  }
+
+  Widget _entryField(
+    String title,
+    TextEditingController controller,
+  ) {
+    return TextField(
+      controller: controller,
+      decoration: InputDecoration(
+          hintText: "Ingrese su correo",
+          labelText: title,
+          fillColor: Colors.white,
+          filled: true),
+    );
+  }
+
+  Widget _errorMessage() {
+    return Text(errorMessage == "" ? "" : "Hummm ? $errorMessage");
+  }
+
+  Widget _submitButton() {
+    return ElevatedButton(
+      onPressed:
+          isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
+      child: Text(isLogin ? "Login" : "Register"),
+    );
+  }
+
+  Widget entrar() {
+    return ElevatedButton(
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => homePage()),
+        );
+      },
+      child: Text("Login"),
+    );
+  }
+
+  Widget _loginOrRegisterButton() {
+    return TextButton(
+      onPressed: () {
+        setState(() {
+          isLogin = !isLogin;
+        });
+      },
+      child: Text(isLogin ? "Register instead" : "Login instead"),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,117 +100,52 @@ class _MyLoginState extends State<MyLogin> {
             image: AssetImage('assets/login2.png'), fit: BoxFit.cover),
       ),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Stack(children: [
-          Container(
-            padding: const EdgeInsets.only(left: 35, top: 80),
-            child: const Text(
-              "Bienvenido",
-              style: TextStyle(color: Colors.white, fontSize: 33),
-            ),
-          ),
-          SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.only(
-                  right: 35,
-                  left: 35,
-                  top: MediaQuery.of(context).size.height * 0.5),
-              child: Column(children: [
-                TextField(
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey.shade100,
-                    filled: true,
-                    hintText: 'Contraseña',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Login',
+          backgroundColor: Colors.transparent,
+          body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 50, top: 50),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Text(
+                      'Puente Arcoiris',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: Color(0xff4c505b),
-                        fontSize: 27,
-                        fontWeight: FontWeight.w700,
-                      ),
+                          color: Color.fromRGBO(249, 142, 44, 1),
+                          fontSize: 20,
+                          fontFamily: "Inter",
+                          fontStyle: FontStyle.italic),
                     ),
                     CircleAvatar(
-                      radius: 30,
-                      backgroundColor: const Color(0xff4c505b),
-                      child: IconButton(
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => homePage()),
-                          );
-                        },
-                        icon: const Icon(Icons.arrow_forward),
-                      ),
+                      backgroundColor: Colors.white,
+                      radius: 95,
+                      backgroundImage: AssetImage("assets/logoapp.png"),
+                    ),
+                    Column(
+                      children: [
+                        Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 50.0),
+                            child: _entryField("Correo", _controllerEmail)),
+                        SizedBox(
+                          height: 30,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                          child: _entryField("Contraseña", _controllerPassword),
+                        ),
+                        _submitButton(),
+                        entrar(),
+                        _loginOrRegisterButton(),
+                      ],
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MyRegister()),
-                          );
-                        },
-                        child: const Text(
-                          'Registrate!',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 18,
-                            color: Color(0xff4c505b),
-                          ),
-                        ),
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: const Text(
-                          'Olvide mi contraseña',
-                          style: TextStyle(
-                            decoration: TextDecoration.underline,
-                            fontSize: 18,
-                            color: Color(0xff4c505b),
-                          ),
-                        ),
-                      ),
-                    ]),
-              ]),
+              ),
             ),
-          ),
-        ]),
-      ),
+          )),
     );
   }
 }

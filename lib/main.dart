@@ -33,6 +33,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: <String, WidgetBuilder>{
+        "/inicio": (BuildContext context) => MyHomePage(title: 'Flutter'),
+        "/login": (BuildContext context) => MyLogin(),
+        "/home": (BuildContext context) => homePage(),
+      },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -50,8 +55,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    final ButtonStyle style =
-        ElevatedButton.styleFrom(textStyle: const TextStyle(fontSize: 20,fontFamily: 'Raleway'));
+    final ButtonStyle style = ElevatedButton.styleFrom(
+        textStyle: const TextStyle(fontSize: 20, fontFamily: 'Raleway'));
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 243, 234, 225),
       body: Center(

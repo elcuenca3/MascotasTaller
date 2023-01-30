@@ -1,3 +1,4 @@
+import 'package:MascotasTaller/pruebas/exam.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
@@ -42,7 +43,7 @@ class _homePageState extends State<homePage> {
         .doc(
           tipoPlan,
         )
-        .collection("local")
+        .collection("Local")
         .doc(locales)
         .get();
 
@@ -53,6 +54,7 @@ class _homePageState extends State<homePage> {
     return data;
   }
 
+
   int _selectedIndex = 1; // pagina que se muestra
   void _onItemTapped(int index) {
     setState(() {
@@ -62,11 +64,11 @@ class _homePageState extends State<homePage> {
 
   _homePageState() {
     var servicio1 = selectFromFirebase('Servicios', 'Alimentacion');
-    var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
-    var servicio3 = selectFromFirebase('Servicios', 'Obituario');
+    // var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
+    // var servicio3 = selectFromFirebase('Servicios', 'Obituario');
     _widgetOptions = <Widget>[
       //SERVICIOS
-      Servicios(),
+      FirebaseExample(),
       //HOME
       SingleChildScrollView(
         child: Column(
@@ -320,7 +322,7 @@ class _homePageState extends State<homePage> {
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text(snapshot.data!["valor"].toString())
+                                      Text(snapshot.data!["Nombre"].toString())
                                     ],
                                   ),
                                   SizedBox(
@@ -329,12 +331,12 @@ class _homePageState extends State<homePage> {
                                   Row(
                                     children: [
                                       Text(
-                                        "nombre: ",
+                                        "Nombre: ",
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
-                                      Text("1 ")
+                                      Text("hola")
                                     ],
                                   ),
                                 ],

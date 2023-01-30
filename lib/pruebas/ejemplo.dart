@@ -23,12 +23,18 @@ class _ServiciosState extends State<Servicios> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(40, 40, 0, 40),
-                  child: Text('Servicios', style: TextStyle(
+              Center(
+              child: Column(
+              children: [
+                Padding( padding: const EdgeInsets.only(bottom: 22, top: 22),
+                    child: Text('Servicios', style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.normal,
-                      fontSize: 30)),
+                      fontSize: 30,
+                    ),
+                    )),
+                  ],
+                  ),
                 ),
               ],
             ),

@@ -62,9 +62,9 @@ class _homePageState extends State<homePage> {
     var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
     var servicio3 = selectFromFirebase('Servicios', 'Obituario');
     _widgetOptions = <Widget>[
-
+      //SERVICIOS
       Servicios(),
-
+      //HOME
       SingleChildScrollView(
         child: Column(
           children: [
@@ -92,99 +92,213 @@ class _homePageState extends State<homePage> {
                 Text(
                 '¿Qué es Puente Arcoíris?',
                 style: optionStyle,
-              ),
-              Padding( padding: const EdgeInsets.only(bottom: 25, top: 25),
-                child:Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text("Ofrecemos el primer cementerio\n "
-                      "de mascotas en la ciudad de Loja\n"
-                      "el mismo que fue concebido para\n"
-                      "dar ese último adiós a nuestras\n"
-                      "mascotas que han formado parte\n"
-                      "de nuestras vidas y con quienes\n"
-                      "hemos compartido momentos felices.\n"
-                      "Conoce nuestra oferta de productos\n"
-                      "y servicios relacionados a\n"
-                      "nuestras mascotas\n",
-                      style:TextStyle(fontStyle: FontStyle.italic)),
-                  Image.asset("assets/imgmain.png")
+                ),
+                Padding( padding: const EdgeInsets.only(bottom: 22, top: 22),
+                  child:Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text("Ofrecemos el primer cementerio\n "
+                        "de mascotas en la ciudad de Loja\n"
+                        "el mismo que fue concebido para\n"
+                        "dar ese último adiós a nuestras\n"
+                        "mascotas que han formado parte\n"
+                        "de nuestras vidas y con quienes\n"
+                        "hemos compartido momentos felices.\n"
+                        "Conoce nuestra oferta de productos\n"
+                        "y servicios relacionados a\n"
+                        "nuestras mascotas\n",
+                        style:TextStyle(fontStyle: FontStyle.italic)),
+                    Image.asset("assets/imgmain.png")
+                  ],
+                  ),),
+                  Text(
+                    'Lo que tenemos para ofrecerte',
+                      style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                          fontSize: 25
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Card(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        color: Colors.lightBlueAccent,
+                        child: SizedBox(
+                          width: 205,
+                          height: 90,
+                          child: Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Servicio 24 horas',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  subtitle: Text(
+                                      'Ofrecemos un servicio integral, 24 horas al día los 365 días del año.',style: TextStyle(fontSize: 10,color: Colors.black)),
+                                  leading: Icon(Icons.access_time_rounded,color: Colors.deepOrange,size: 42),
+                                ),],),),),
+                      ),
+                      Card(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        color: Colors.lightBlueAccent,
+                        child: SizedBox(
+                          width: 205,
+                          height: 90,
+                          child: Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Funerales',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  subtitle: Text(
+                                      'Una despedida como tu mascota se lo merece',style: TextStyle(fontSize: 10,color: Colors.black)),
+                                  leading: Icon(Icons.church,color: Colors.deepOrange,size: 42),
+                                ),],),),),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Card(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        color: Colors.lightBlueAccent,
+                        child: SizedBox(
+                          width: 205,
+                          height: 90,
+                          child: Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Cremación',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  subtitle: Text(
+                                      'Deseamos mantener sus recuerdos intactos para ti y tu familia.',style: TextStyle(fontSize: 10,color: Colors.black)),
+                                  leading: Icon(Icons.add_circle,color: Colors.deepOrange,size: 42),
+                                ),],),),),
+                      ),
+                      Card(
+                        elevation: 20,
+                        shadowColor: Colors.black,
+                        color: Colors.lightBlueAccent,
+                        child: SizedBox(
+                          width: 205,
+                          height: 90,
+                          child: Padding(
+                            padding: const EdgeInsets.all(15),
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Sala de Despedida',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  subtitle: Text(
+                                      'Espacios cómodos y ambientados especialmente para tu ser querido.',style: TextStyle(fontSize: 9.2,color: Colors.black)),
+                                  leading: Icon(Icons.church,color: Colors.deepOrange,size: 42),
+                                ),],),),),
+                      ),
+                    ],
+                  ),
+                  
                 ],
-              ), )
-
-              ],
             ),
             ),
           ],
         ),
       ),
+
+      //PROMOS
       SingleChildScrollView(
-      child: Padding(
-          padding: const EdgeInsets.all(10),
-          child: FutureBuilder(
-            future: servicio1,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Column(
-                  children: [
-                    Text(
-                      'Alimentacion',
-                      style: optionStyle,
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          width: 100,
-                          child: Image(
-                            image: AssetImage("assets/logoapp.png"),
+
+
+        child: Center(
+        child: Column(
+        children: [
+        Padding( padding: const EdgeInsets.only(bottom: 22, top: 22),
+            child: Text('Promos', style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.normal,
+                fontSize: 30,
+                ),
+          )),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: FutureBuilder(
+              future: servicio1,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  return Column(
+                    children: [
+                      Text(
+                        'Alimentacion',
+                        style: optionStyle,
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 100,
+                            child: Image(
+                              image: AssetImage("assets/logoapp.png"),
+                            ),
                           ),
-                        ),
-                        SizedBox(
-                          width: 20,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                Text(
-                                  "Valor: ",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                          SizedBox(
+                            width: 20,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(
+                                    "Valor: ",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Text(snapshot.data!["valor"].toString() ??
-                                    "Sin datos")
-                              ],
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "nombre: ",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
+                                  Text(snapshot.data!["valor"].toString() ??
+                                      "Sin datos")
+                                ],
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "nombre: ",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
-                                ),
-                                Text("1 ")
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  
-                  ],
-                );
-              } else if (snapshot.hasError) {
-                Text("No hay datos disponibles");
-              }
-              return CircularProgressIndicator();
-            },
+                                  Text("1 ")
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+
+                    ],
+                  );
+                } else if (snapshot.hasError) {
+                  Text("No hay datos disponibles");
+                }
+                return CircularProgressIndicator();
+              },
+            ),
           ),
+        ],
+
+        ),
         ),
       ),
     ];

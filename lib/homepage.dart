@@ -41,7 +41,10 @@ class _homePageState extends State<homePage> {
         .collection("Servicios")
         .doc(
           tipoPlan,
-        ).collection("local").doc(locales).get();
+        )
+        .collection("local")
+        .doc(locales)
+        .get();
 
     Map<String, dynamic>? data = snapshot.data();
     print(data);
@@ -89,34 +92,35 @@ class _homePageState extends State<homePage> {
             Center(
               child: Column(
                 children: [
-                Text(
-                '¿Qué es Puente Arcoíris?',
-                style: optionStyle,
-                ),
-                Padding( padding: const EdgeInsets.only(bottom: 22, top: 22),
-                  child:Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text("Ofrecemos el primer cementerio\n "
-                        "de mascotas en la ciudad de Loja\n"
-                        "el mismo que fue concebido para\n"
-                        "dar ese último adiós a nuestras\n"
-                        "mascotas que han formado parte\n"
-                        "de nuestras vidas y con quienes\n"
-                        "hemos compartido momentos felices.\n"
-                        "Conoce nuestra oferta de productos\n"
-                        "y servicios relacionados a\n"
-                        "nuestras mascotas\n",
-                        style:TextStyle(fontStyle: FontStyle.italic)),
-                    Image.asset("assets/imgmain.png")
-                  ],
-                  ),),
+                  Text(
+                    '¿Qué es Puente Arcoíris?',
+                    style: optionStyle,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 22, top: 22),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                            "Ofrecemos el primer cementerio\n "
+                            "de mascotas en la ciudad de Loja\n"
+                            "el mismo que fue concebido para\n"
+                            "dar ese último adiós a nuestras\n"
+                            "mascotas que han formado parte\n"
+                            "de nuestras vidas y con quienes\n"
+                            "hemos compartido momentos felices.\n"
+                            "Conoce nuestra oferta de productos\n"
+                            "y servicios relacionados a\n"
+                            "nuestras mascotas\n",
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic, fontSize: 11)),
+                        Image.asset("assets/imgmain.png"),
+                      ],
+                    ),
+                  ),
                   Text(
                     'Lo que tenemos para ofrecerte',
-                      style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                          fontSize: 25
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                   ),
                   const SizedBox(
                     height: 20,
@@ -129,38 +133,64 @@ class _homePageState extends State<homePage> {
                         shadowColor: Colors.black,
                         color: Colors.lightBlueAccent,
                         child: SizedBox(
-                          width: 205,
-                          height: 90,
+                          width: 180,
+                          height: 102,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
                                 ListTile(
-                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                  title: Text('Servicio 24 horas',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Servicio 24 horas',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
                                   subtitle: Text(
-                                      'Ofrecemos un servicio integral, 24 horas al día los 365 días del año.',style: TextStyle(fontSize: 10,color: Colors.black)),
-                                  leading: Icon(Icons.access_time_rounded,color: Colors.deepOrange,size: 42),
-                                ),],),),),
+                                      'Ofrecemos un servicio integral, 24 horas al día los 365 días del año.',
+                                      style: TextStyle(
+                                          fontSize: 8, color: Colors.black)),
+                                  leading: Icon(Icons.access_time_rounded,
+                                      color: Color.fromRGBO(249, 142, 44, 1),
+                                      size: 30),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
                         color: Colors.lightBlueAccent,
                         child: SizedBox(
-                          width: 205,
-                          height: 90,
+                          width: 180,
+                          height: 102,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
                                 ListTile(
-                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                  title: Text('Funerales',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Funerales',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
                                   subtitle: Text(
-                                      'Una despedida como tu mascota se lo merece',style: TextStyle(fontSize: 10,color: Colors.black)),
-                                  leading: Icon(Icons.church,color: Colors.deepOrange,size: 42),
-                                ),],),),),
+                                      'Una despedida como tu mascota se lo merece',
+                                      style: TextStyle(
+                                          fontSize: 10, color: Colors.black)),
+                                  leading: Icon(Icons.add_circle,
+                                      color: Color.fromRGBO(249, 142, 44, 1),
+                                      size: 30),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
@@ -172,44 +202,69 @@ class _homePageState extends State<homePage> {
                         shadowColor: Colors.black,
                         color: Colors.lightBlueAccent,
                         child: SizedBox(
-                          width: 205,
-                          height: 90,
+                          width: 180,
+                          height: 102,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
                                 ListTile(
-                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                  title: Text('Cremación',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Cremación',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
                                   subtitle: Text(
-                                      'Deseamos mantener sus recuerdos intactos para ti y tu familia.',style: TextStyle(fontSize: 10,color: Colors.black)),
-                                  leading: Icon(Icons.add_circle,color: Colors.deepOrange,size: 42),
-                                ),],),),),
+                                      'Deseamos mantener sus recuerdos intactos para ti y tu familia.',
+                                      style: TextStyle(
+                                          fontSize: 10, color: Colors.black)),
+                                  leading: Icon(Icons.add_circle,
+                                      color: Color.fromRGBO(249, 142, 44, 1),
+                                      size: 30),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
                         color: Colors.lightBlueAccent,
                         child: SizedBox(
-                          width: 205,
-                          height: 90,
+                          width: 180,
+                          height: 102,
                           child: Padding(
                             padding: const EdgeInsets.all(15),
                             child: Column(
                               children: [
                                 ListTile(
-                                  contentPadding: EdgeInsets.fromLTRB(2, 0, 0, 0),
-                                  title: Text('Sala de Despedida',style: TextStyle(fontSize: 12,color: Colors.black,fontWeight: FontWeight.bold)),
+                                  contentPadding:
+                                      EdgeInsets.fromLTRB(2, 0, 0, 0),
+                                  title: Text('Sala de Despedida',
+                                      style: TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold)),
                                   subtitle: Text(
-                                      'Espacios cómodos y ambientados especialmente para tu ser querido.',style: TextStyle(fontSize: 9.2,color: Colors.black)),
-                                  leading: Icon(Icons.church,color: Colors.deepOrange,size: 42),
-                                ),],),),),
+                                      'Espacios cómodos y ambientados especialmente para tu ser querido.',
+                                      style: TextStyle(
+                                          fontSize: 8, color: Colors.black)),
+                                  leading: Icon(Icons.church,
+                                      color: Color.fromRGBO(249, 142, 44, 1),
+                                      size: 30),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
-                  
                 ],
-            ),
+              ),
             ),
           ],
         ),
@@ -217,88 +272,86 @@ class _homePageState extends State<homePage> {
 
       //PROMOS
       SingleChildScrollView(
-
-
         child: Center(
-        child: Column(
-        children: [
-        Padding( padding: const EdgeInsets.only(bottom: 22, top: 22),
-            child: Text('Promos', style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.normal,
-                fontSize: 30,
-                ),
-          )),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: FutureBuilder(
-              future: servicio1,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  return Column(
-                    children: [
-                      Text(
-                        'Alimentacion',
-                        style: optionStyle,
-                      ),
-                      Row(
+          child: Column(
+            children: [
+              Padding(
+                  padding: const EdgeInsets.only(bottom: 22, top: 22),
+                  child: Text(
+                    'Promos',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.normal,
+                      fontSize: 30,
+                    ),
+                  )),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: FutureBuilder(
+                  future: servicio1,
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Column(
                         children: [
-                          Container(
-                            width: 100,
-                            child: Image(
-                              image: AssetImage("assets/logoapp.png"),
-                            ),
+                          Text(
+                            'Alimentacion',
+                            style: optionStyle,
                           ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Valor: ",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(snapshot.data!["valor"].toString() ??
-                                      "Sin datos")
-                                ],
+                              Container(
+                                width: 100,
+                                child: Image(
+                                  image: AssetImage("assets/logoapp.png"),
+                                ),
                               ),
                               SizedBox(
-                                height: 10,
+                                width: 20,
                               ),
-                              Row(
+                              Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "nombre: ",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "Valor: ",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text(snapshot.data!["valor"].toString())
+                                    ],
                                   ),
-                                  Text("1 ")
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Row(
+                                    children: [
+                                      Text(
+                                        "nombre: ",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      Text("1 ")
+                                    ],
+                                  ),
                                 ],
-                              ),
+                              )
                             ],
-                          )
+                          ),
                         ],
-                      ),
-
-                    ],
-                  );
-                } else if (snapshot.hasError) {
-                  Text("No hay datos disponibles");
-                }
-                return CircularProgressIndicator();
-              },
-            ),
+                      );
+                    } else if (snapshot.hasError) {
+                      Text("No hay datos disponibles");
+                    }
+                    return CircularProgressIndicator();
+                  },
+                ),
+              ),
+            ],
           ),
-        ],
-
-        ),
         ),
       ),
     ];
@@ -310,7 +363,7 @@ class _homePageState extends State<homePage> {
     <String, WidgetBuilder>{};
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor:  Color.fromRGBO(254, 246, 234, 1),
+      backgroundColor: Color.fromRGBO(254, 246, 234, 1),
       appBar: AppBar(
         //backgroundColor: Colors.amber,
         automaticallyImplyLeading: false,

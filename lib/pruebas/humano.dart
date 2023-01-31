@@ -32,8 +32,10 @@ class _FirebaseExampleState extends State<FirebaseExample> {
                 return ListView(
                   children: snapshot.data!.docs.map((DocumentSnapshot document) {
                     return ListTile(
-                      title: Text(document['campo1']),
+                      title: Text(document['campo']),
+
                     );
+
                   }).toList(),
                 );
               },
@@ -45,6 +47,7 @@ class _FirebaseExampleState extends State<FirebaseExample> {
               decoration: InputDecoration(
                 hintText: "Agregar dato",
               ),
+
               onSubmitted: (value) {
                 FirebaseFirestore.instance.collection('coleccion').add({'campo': value});
               },

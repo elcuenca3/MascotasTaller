@@ -1,11 +1,13 @@
 import 'package:MascotasTaller/pruebas/exam.dart';
 import 'package:card_swiper/card_swiper.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:MascotasTaller/acceso/login.dart';
 import 'package:MascotasTaller/acceso/registro.dart';
+
 
 import 'pruebas/ejemplo.dart';
 
@@ -73,6 +75,7 @@ class _homePageState extends State<homePage> {
       SingleChildScrollView(
         child: Column(
           children: [
+            // CarouselSlider(items: _images, options: CarouselOptions)
             Container(
               width: double.infinity,
               height: 250,
@@ -95,11 +98,18 @@ class _homePageState extends State<homePage> {
               child: Column(
                 children: [
                   Text(
+                      "- SOBRE MASCOTAS -",
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 11,
+                          color: Colors.deepOrange)),
+                  SizedBox(height: 5),
+                  Text(
                     '¿Qué es Puente Arcoíris?',
                     style: optionStyle,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 22, top: 22),
+                    padding: const EdgeInsets.only(bottom: 23, top: 23),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -120,6 +130,13 @@ class _homePageState extends State<homePage> {
                       ],
                     ),
                   ),
+                  Text(
+                      "- SERVICIOS -",
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 11,
+                          color: Colors.deepOrange)),
+                  SizedBox(height: 5),
                   Text(
                     'Lo que tenemos para ofrecerte',
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
@@ -185,9 +202,8 @@ class _homePageState extends State<homePage> {
                                       'Una despedida como tu mascota se lo merece',
                                       style: TextStyle(
                                           fontSize: 10, color: Colors.black)),
-                                  leading: Icon(Icons.add_circle,
-                                      color: Color.fromRGBO(249, 142, 44, 1),
-                                      size: 30),
+                                  leading: Image.asset("assets/iconos/fune.png",
+                                      color: Color.fromRGBO(249, 142, 44, 1)),
                                 ),
                               ],
                             ),
@@ -222,9 +238,8 @@ class _homePageState extends State<homePage> {
                                       'Deseamos mantener sus recuerdos intactos para ti y tu familia.',
                                       style: TextStyle(
                                           fontSize: 10, color: Colors.black)),
-                                  leading: Icon(Icons.add_circle,
-                                      color: Color.fromRGBO(249, 142, 44, 1),
-                                      size: 30),
+                                  leading: Image.asset("assets/iconos/crema.png",
+                                          color: Color.fromRGBO(249, 142, 44, 1)),
                                 ),
                               ],
                             ),
@@ -265,6 +280,56 @@ class _homePageState extends State<homePage> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 20),
+                  //Obitarios
+                  Text(
+                      "- MASCOTAS EN PAZ -",
+                      style: TextStyle(
+                          fontStyle: FontStyle.normal,
+                          fontSize: 11,
+                          color: Colors.deepOrange)),
+                  SizedBox(height: 15),
+                       /*
+                       ListView(
+                        scrollDirection: Axis.horizontal,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: (){},
+                              child: Container(
+                                width: 200,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
+                                child: Center(child: Text('Slider 1',style: TextStyle(fontSize: 37, color: Colors.white))),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: (){},
+                              child: Container(
+                                width: 200,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
+                                child: Center(child: Text('Slider 2',style: TextStyle(fontSize: 37, color: Colors.white))),
+                              ),
+                            ),
+                          ),
+
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: InkWell(
+                              onTap: (){},
+                              child: Container(
+                                width: 200,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
+                                child: Center(child: Text('Slider 3',style: TextStyle(fontSize: 37, color: Colors.white))),
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                  */
                 ],
               ),
             ),
@@ -361,7 +426,6 @@ class _homePageState extends State<homePage> {
 
   @override
   Widget build(BuildContext context) {
-    routes:
     <String, WidgetBuilder>{};
     return Scaffold(
       key: scaffoldKey,
@@ -375,7 +439,15 @@ class _homePageState extends State<homePage> {
         centerTitle: false,
         elevation: 2,
       ),
-      body: Container(child: _widgetOptions.elementAt(_selectedIndex)),
+      body: Container(
+          child: _widgetOptions.elementAt(_selectedIndex),
+          decoration: BoxDecoration(
+          image: DecorationImage(
+          image: AssetImage("assets/fondo2.jpg"),
+          fit: BoxFit.cover,
+      ),
+    ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(

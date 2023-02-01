@@ -8,12 +8,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:MascotasTaller/acceso/login.dart';
 import 'package:MascotasTaller/acceso/registro.dart';
 
-class Perfiles extends StatefulWidget {
+class mascota extends StatefulWidget {
   @override
-  _PerfilesState createState() => _PerfilesState();
+  _mascotaState createState() => _mascotaState();
 }
 
-class _PerfilesState extends State<Perfiles> {
+class _mascotaState extends State<mascota> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class _PerfilesState extends State<Perfiles> {
           Expanded(
             child: StreamBuilder<QuerySnapshot>(
               stream:
-                  FirebaseFirestore.instance.collection('usuarios').snapshots(),
+                  FirebaseFirestore.instance.collection('Mascotas').snapshots(),
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
@@ -37,13 +37,10 @@ class _PerfilesState extends State<Perfiles> {
                     return Column(
                       children: [
                         Card(
-
-                          
                           child: ListTile(
-                            leading: Icon(Icons.account_box_rounded),
-                            title: Text("Nombre:"+document['nombre'] +
+                            title: Text(document['nombre'] +
                                 " " +
-                                document['apellido'] +"\n"),
+                                document['tipo']),
                             trailing: ElevatedButton(
                               onPressed: () {
                                 Navigator.push(

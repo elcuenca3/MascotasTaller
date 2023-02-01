@@ -1,5 +1,6 @@
 import 'package:MascotasTaller/pruebas/ejemplo.dart';
 import 'package:MascotasTaller/acceso/widget_tree.dart';
+import 'package:MascotasTaller/pruebas/humanoagg.dart';
 import 'package:flutter/material.dart';
 import 'package:MascotasTaller/homepage.dart';
 import 'splash.dart';
@@ -39,6 +40,8 @@ class MyApp extends StatelessWidget {
         "/inicio": (BuildContext context) => MyHomePage(title: 'Flutter'),
         "/login": (BuildContext context) => MyLogin(),
         "/home": (BuildContext context) => homePage(),
+        "/agghuman": (BuildContext context) => agghuman(),
+
       },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

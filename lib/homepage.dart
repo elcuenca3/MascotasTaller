@@ -1,15 +1,11 @@
-import 'package:MascotasTaller/pruebas/exam.dart';
+import 'package:MascotasTaller/pruebas/humano.dart';
+import 'package:MascotasTaller/pruebas/mascota.dart';
+import 'package:MascotasTaller/pruebas/mascotagg.dart';
 import 'package:card_swiper/card_swiper.dart';
-import 'package:carousel_slider/carousel_slider.dart';
+
 import 'package:flutter/material.dart';
-import 'package:card_swiper/card_swiper.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:MascotasTaller/acceso/login.dart';
-import 'package:MascotasTaller/acceso/registro.dart';
-
-
-import 'pruebas/ejemplo.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -56,7 +52,6 @@ class _homePageState extends State<homePage> {
     return data;
   }
 
-
   int _selectedIndex = 1; // pagina que se muestra
   void _onItemTapped(int index) {
     setState(() {
@@ -70,7 +65,8 @@ class _homePageState extends State<homePage> {
     // var servicio3 = selectFromFirebase('Servicios', 'Obituario');
     _widgetOptions = <Widget>[
       //SERVICIOS
-      FirebaseExample(),
+      mascota(),
+
       //HOME
       SingleChildScrollView(
         child: Column(
@@ -97,8 +93,7 @@ class _homePageState extends State<homePage> {
             Center(
               child: Column(
                 children: [
-                  Text(
-                      "- SOBRE MASCOTAS -",
+                  Text("- SOBRE MASCOTAS -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
@@ -130,8 +125,7 @@ class _homePageState extends State<homePage> {
                       ],
                     ),
                   ),
-                  Text(
-                      "- SERVICIOS -",
+                  Text("- SERVICIOS -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
@@ -238,8 +232,9 @@ class _homePageState extends State<homePage> {
                                       'Deseamos mantener sus recuerdos intactos para ti y tu familia.',
                                       style: TextStyle(
                                           fontSize: 10, color: Colors.black)),
-                                  leading: Image.asset("assets/iconos/crema.png",
-                                          color: Color.fromRGBO(249, 142, 44, 1)),
+                                  leading: Image.asset(
+                                      "assets/iconos/crema.png",
+                                      color: Color.fromRGBO(249, 142, 44, 1)),
                                 ),
                               ],
                             ),
@@ -282,14 +277,13 @@ class _homePageState extends State<homePage> {
                   ),
                   SizedBox(height: 20),
                   //Obitarios
-                  Text(
-                      "- MASCOTAS EN PAZ -",
+                  Text("- MASCOTAS EN PAZ -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
                           color: Colors.deepOrange)),
                   SizedBox(height: 15),
-                       /*
+                  /*
                        ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
@@ -421,6 +415,9 @@ class _homePageState extends State<homePage> {
           ),
         ),
       ),
+      Perfiles(),
+      // SingleChildScrollView(
+      // ),
     ];
   }
 
@@ -440,13 +437,13 @@ class _homePageState extends State<homePage> {
         elevation: 2,
       ),
       body: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
-          decoration: BoxDecoration(
+        child: _widgetOptions.elementAt(_selectedIndex),
+        decoration: BoxDecoration(
           image: DecorationImage(
-          image: AssetImage("assets/fondo2.jpg"),
-          fit: BoxFit.cover,
-      ),
-    ),
+            image: AssetImage("assets/fondo.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -464,6 +461,11 @@ class _homePageState extends State<homePage> {
             backgroundColor: Color.fromRGBO(254, 246, 234, 1),
             icon: ImageIcon(AssetImage("assets/iconos/des.png")),
             label: 'Promos',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(254, 246, 234, 1),
+            icon: ImageIcon(AssetImage("assets/iconos/cliente.png")),
+            label: 'Perfiles',
           ),
         ],
         selectedItemColor: Color.fromRGBO(249, 142, 44, 1),

@@ -41,7 +41,7 @@ class _PerfilesState extends State<Perfiles> {
                           
                           child: ListTile(
                             leading: Icon(Icons.account_box_rounded),
-                            title: Text("Nombre:"+document['nombre'] +
+                            title: Text("Nombre: "+document['nombre'] +
                                 " " +
                                 document['apellido'] +"\n"),
                             trailing: ElevatedButton(

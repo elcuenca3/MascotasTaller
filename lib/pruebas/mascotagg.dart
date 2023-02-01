@@ -27,8 +27,7 @@ class _FormPageState extends State<FormPage> {
   late String _sexo;
   late String _raza;
   List<String> _options = ['Perro', 'Gato'];
-  String _selectedOption = 'Perro';
-  String selectedOption = "";
+  String _selectedOption = "";
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
 

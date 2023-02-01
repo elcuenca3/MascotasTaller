@@ -1,4 +1,4 @@
-import 'package:MascotasTaller/pruebas/exam.dart';
+import 'package:MascotasTaller/pruebas/ejemplo.dart';
 import 'package:MascotasTaller/pruebas/mascota.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -9,8 +9,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:MascotasTaller/acceso/login.dart';
 import 'package:MascotasTaller/acceso/registro.dart';
 
-
 import 'pruebas/ejemplo.dart';
+import 'pruebas/humano.dart';
 
 class homePage extends StatefulWidget {
   const homePage({Key? key}) : super(key: key);
@@ -57,7 +57,6 @@ class _homePageState extends State<homePage> {
     return data;
   }
 
-
   int _selectedIndex = 1; // pagina que se muestra
   void _onItemTapped(int index) {
     setState(() {
@@ -71,7 +70,7 @@ class _homePageState extends State<homePage> {
     // var servicio3 = selectFromFirebase('Servicios', 'Obituario');
     _widgetOptions = <Widget>[
       //SERVICIOS
-      mascota(),
+      Servicios(),
       //HOME
       SingleChildScrollView(
         child: Column(
@@ -98,8 +97,7 @@ class _homePageState extends State<homePage> {
             Center(
               child: Column(
                 children: [
-                  Text(
-                      "- SOBRE MASCOTAS -",
+                  Text("- SOBRE MASCOTAS -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
@@ -131,8 +129,7 @@ class _homePageState extends State<homePage> {
                       ],
                     ),
                   ),
-                  Text(
-                      "- SERVICIOS -",
+                  Text("- SERVICIOS -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
@@ -239,8 +236,9 @@ class _homePageState extends State<homePage> {
                                       'Deseamos mantener sus recuerdos intactos para ti y tu familia.',
                                       style: TextStyle(
                                           fontSize: 10, color: Colors.black)),
-                                  leading: Image.asset("assets/iconos/crema.png",
-                                          color: Color.fromRGBO(249, 142, 44, 1)),
+                                  leading: Image.asset(
+                                      "assets/iconos/crema.png",
+                                      color: Color.fromRGBO(249, 142, 44, 1)),
                                 ),
                               ],
                             ),
@@ -283,14 +281,13 @@ class _homePageState extends State<homePage> {
                   ),
                   SizedBox(height: 20),
                   //Obitarios
-                  Text(
-                      "- MASCOTAS EN PAZ -",
+                  Text("- MASCOTAS EN PAZ -",
                       style: TextStyle(
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
                           color: Colors.deepOrange)),
                   SizedBox(height: 15),
-                       /*
+                  /*
                        ListView(
                         scrollDirection: Axis.horizontal,
                         children: [
@@ -344,51 +341,52 @@ class _homePageState extends State<homePage> {
           physics: FixedExtentScrollPhysics(),
           children: [
             Center(
-            child: Container(
+                child: Container(
               child: Image(
                 image: AssetImage("assets/promo.png"),
               ),
             )),
             Center(
-            child: Card(
-              clipBehavior: Clip.antiAlias,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Icon(Icons.star),
-                    title: const Text('Pro-can: Razas Pequeñas 454g'),
-                    subtitle: Text(
-                      'Pollo, cereales y leche',
-                      style: TextStyle(color: Colors.black.withOpacity(0.6)),
-                    ),
-                  ),
-                  Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.network("https://scontent.floh3-1.fna.fbcdn.net/v/t1.6435-9/105405519_116333980119912_4298454532973809772_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9267fe&_nc_ohc=h0nxcGiL02MAX_AXNRm&_nc_ht=scontent.floh3-1.fna&oh=00_AfAjMHqF7dxH8plo0E5rT7v60Cx-KS1C6l5f-ux81weUSA&oe=64013555",
-                          height: 130),
-                      Text(
-                          "• Alimenta a tu cachorro hasta \n  sus 12 meses de edad.\n"
-                          "• Contiene todas las proteínas,\n  vitaminas, minerales.\n"
-                          "• Cumplir con la necesidad \n  nutricional de un cachorro.\n",
-                          style: TextStyle(
-                              fontStyle: FontStyle.italic, fontSize: 12)),
-                      ButtonBar(
-                        alignment: MainAxisAlignment.end,
-                        children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              // Perform some action
-                            },
-                            child: const Text('Visitar'),
-                          ),
-                        ],
+              child: Card(
+                clipBehavior: Clip.antiAlias,
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.star),
+                      title: const Text('Pro-can: Razas Pequeñas 454g'),
+                      subtitle: Text(
+                        'Pollo, cereales y leche',
+                        style: TextStyle(color: Colors.black.withOpacity(0.6)),
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.network(
+                            "https://scontent.floh3-1.fna.fbcdn.net/v/t1.6435-9/105405519_116333980119912_4298454532973809772_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9267fe&_nc_ohc=h0nxcGiL02MAX_AXNRm&_nc_ht=scontent.floh3-1.fna&oh=00_AfAjMHqF7dxH8plo0E5rT7v60Cx-KS1C6l5f-ux81weUSA&oe=64013555",
+                            height: 130),
+                        Text(
+                            "• Alimenta a tu cachorro hasta \n  sus 12 meses de edad.\n"
+                            "• Contiene todas las proteínas,\n  vitaminas, minerales.\n"
+                            "• Cumplir con la necesidad \n  nutricional de un cachorro.\n",
+                            style: TextStyle(
+                                fontStyle: FontStyle.italic, fontSize: 12)),
+                        ButtonBar(
+                          alignment: MainAxisAlignment.end,
+                          children: [
+                            ElevatedButton(
+                              onPressed: () {
+                                // Perform some action
+                              },
+                              child: const Text('Visitar'),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
             ),
             Center(
               child: Card(
@@ -397,7 +395,8 @@ class _homePageState extends State<homePage> {
                   children: [
                     ListTile(
                       leading: Icon(Icons.star),
-                      title: const Text('Plan de Seguro Veterinario en Vital Vet'),
+                      title:
+                          const Text('Plan de Seguro Veterinario en Vital Vet'),
                       subtitle: Text(
                         'La salud de tu mascota siempre es lo primero',
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
@@ -406,12 +405,13 @@ class _homePageState extends State<homePage> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4F1lUkMbPhIhEi83bP_EfyHIXlGBdZI3D7w&usqp=CAU",
+                        Image.network(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4F1lUkMbPhIhEi83bP_EfyHIXlGBdZI3D7w&usqp=CAU",
                             height: 85),
                         Text(
                             "• Revisiones\n"
-                                "• Vacunación anual de Rabia.\n"
-                                "• Vacuna de polivalente canina.\n"
+                            "• Vacunación anual de Rabia.\n"
+                            "• Vacuna de polivalente canina.\n"
                             "• Vacunación de traqueobronquitis\n  infecciosa\n"
                             "• Desparasitación interna trimestral\n"
                             "• 20% de descuento en radiografia\n",
@@ -450,7 +450,8 @@ class _homePageState extends State<homePage> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ZDPoFm_SdXabGo2yn7_1Sfi9vlPGrp8OHQ&usqp=CAU",
+                        Image.network(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ZDPoFm_SdXabGo2yn7_1Sfi9vlPGrp8OHQ&usqp=CAU",
                             height: 100),
                         Text(
                             "• Solo por el 19 y 20 de Marzo,\n  te ofrecemos el 20% de descuento\n  en Peluquería Canina",
@@ -489,14 +490,16 @@ class _homePageState extends State<homePage> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5pxY54xKytFOhkT2KZ698Vs3I7Gh2IPDqFw&usqp=CAU",
+                        Image.network(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5pxY54xKytFOhkT2KZ698Vs3I7Gh2IPDqFw&usqp=CAU",
                             height: 120),
-                        Text("Contamos con:\n\n"
-                        "• ADIESTRAMIENTO CANINO\n"
-                        "• GUARDERÍA CANINA\n"
-                        "• HOTEL CANINO\n"
-                        "• PELUQUERÍA CANINA\n"
-                        "• PASEOS CANINOS\n",
+                        Text(
+                            "Contamos con:\n\n"
+                            "• ADIESTRAMIENTO CANINO\n"
+                            "• GUARDERÍA CANINA\n"
+                            "• HOTEL CANINO\n"
+                            "• PELUQUERÍA CANINA\n"
+                            "• PASEOS CANINOS\n",
                             style: TextStyle(
                                 fontStyle: FontStyle.italic, fontSize: 13)),
                         ButtonBar(
@@ -532,9 +535,11 @@ class _homePageState extends State<homePage> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.network("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTztz5cA0mSmTpcYzNjxs8BEQrWL4sskVAhHQ&usqp=CAU",
+                        Image.network(
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTztz5cA0mSmTpcYzNjxs8BEQrWL4sskVAhHQ&usqp=CAU",
                             height: 100),
-                        Text("Hacemos tratamientos naturales \n de manto y mucho más \n Contamos con:\n\n"
+                        Text(
+                            "Hacemos tratamientos naturales \n de manto y mucho más \n Contamos con:\n\n"
                             "• PELUQUERÍA CANINA\n"
                             "• PASEOS CANINOS\n",
                             style: TextStyle(
@@ -556,7 +561,8 @@ class _homePageState extends State<homePage> {
                 ),
               ),
             ),
-          ])
+          ]),
+      Perfiles(),
     ];
   }
 
@@ -576,13 +582,13 @@ class _homePageState extends State<homePage> {
         elevation: 2,
       ),
       body: Container(
-          child: _widgetOptions.elementAt(_selectedIndex),
-          decoration: BoxDecoration(
+        child: _widgetOptions.elementAt(_selectedIndex),
+        decoration: BoxDecoration(
           image: DecorationImage(
-          image: AssetImage("assets/fondo.jpg"),
-          fit: BoxFit.cover,
-      ),
-    ),
+            image: AssetImage("assets/fondo.jpg"),
+            fit: BoxFit.cover,
+          ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
@@ -600,6 +606,11 @@ class _homePageState extends State<homePage> {
             backgroundColor: Color.fromRGBO(254, 246, 234, 1),
             icon: ImageIcon(AssetImage("assets/iconos/des.png")),
             label: 'Promos',
+          ),
+          BottomNavigationBarItem(
+            backgroundColor: Color.fromRGBO(254, 246, 234, 1),
+            icon: ImageIcon(AssetImage("assets/iconos/cliente.png")),
+            label: 'Perfiles',
           ),
         ],
         selectedItemColor: Color.fromRGBO(249, 142, 44, 1),

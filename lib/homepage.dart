@@ -18,12 +18,41 @@ class homePage extends StatefulWidget {
   @override
   _homePageState createState() => _homePageState();
 }
+class CardItem{
+  final String Imagen;
+  final String titulo;
 
+  const CardItem({
+   required this.Imagen,
+    required this.titulo,
+});
+}
 class _homePageState extends State<homePage> {
   static List<String> _images = [
-    "assets/slider/p1.jpg",
+    "assets/slider/p3.jpg",
     "assets/slider/p2.jpg",
-    "assets/slider/p3.png"
+    "assets/slider/p1.jpg",
+  ];
+
+  List<CardItem> items=[
+    CardItem(
+        Imagen: 'assets/slider/ob1.jpg',
+        titulo: 'COKY'),
+    CardItem(
+        Imagen: 'assets/slider/ob2.jpg',
+        titulo: 'COCO'),
+    CardItem(
+        Imagen: 'assets/slider/ob3.jpg',
+        titulo: 'CHISPITA'),
+    CardItem(
+        Imagen: 'assets/slider/ob4.jpg',
+        titulo: 'BENJI'),
+    CardItem(
+        Imagen: 'assets/slider/ob5.jpg',
+        titulo: 'MICHU'),
+    CardItem(
+        Imagen: 'assets/slider/ob6.jpg',
+        titulo: 'BILLIE')
   ];
 
   PageController? pageViewController;
@@ -63,11 +92,29 @@ class _homePageState extends State<homePage> {
       _selectedIndex = index;
     });
   }
-
   _homePageState() {
+    Widget buildCard({
+      required CardItem items,
+    }) =>
+        Container(
+            width: 200,
+          color: Color.fromARGB(255, 243, 234, 225),
+            child: Column(
+            children: [
+              Expanded(
+                  child: Image.asset(
+                      items.Imagen,
+                      fit: BoxFit.fitWidth,
+                    height: 50.0,)),
+              const SizedBox(height: 4),
+              Text(items.titulo,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20))
+          ],
+        ),
+        );
     var servicio1 = selectFromFirebase('Servicios', 'Alimentacion');
     // var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
     // var servicio3 = selectFromFirebase('Servicios', 'Obituario');
+
     _widgetOptions = <Widget>[
       //SERVICIOS
       Servicios(),
@@ -85,7 +132,7 @@ class _homePageState extends State<homePage> {
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(
                     _images[index],
-                    fit: BoxFit.fill,
+                    fit: BoxFit.cover,
                   );
                 },
                 itemCount: 3,
@@ -105,7 +152,8 @@ class _homePageState extends State<homePage> {
                   SizedBox(height: 5),
                   Text(
                     '¿Qué es Puente Arcoíris?',
-                    style: optionStyle,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 23, top: 23),
@@ -124,7 +172,7 @@ class _homePageState extends State<homePage> {
                             "y servicios relacionados a\n"
                             "nuestras mascotas\n",
                             style: TextStyle(
-                                fontStyle: FontStyle.italic, fontSize: 11)),
+                                fontStyle: FontStyle.normal, fontSize: 12)),
                         Image.asset("assets/imgmain.png"),
                       ],
                     ),
@@ -134,10 +182,10 @@ class _homePageState extends State<homePage> {
                           fontStyle: FontStyle.normal,
                           fontSize: 11,
                           color: Colors.deepOrange)),
-                  SizedBox(height: 5),
+                  SizedBox(height: 10),
                   Text(
                     'Lo que tenemos para ofrecerte',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
                   ),
                   const SizedBox(
                     height: 20,
@@ -279,7 +327,7 @@ class _homePageState extends State<homePage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 22),
                   //Obitarios
                   Text("- MASCOTAS EN PAZ -",
                       style: TextStyle(
@@ -287,53 +335,46 @@ class _homePageState extends State<homePage> {
                           fontSize: 11,
                           color: Colors.deepOrange)),
                   SizedBox(height: 15),
-                  /*
-                       ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: (){},
-                              child: Container(
-                                width: 200,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
-                                child: Center(child: Text('Slider 1',style: TextStyle(fontSize: 37, color: Colors.white))),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: (){},
-                              child: Container(
-                                width: 200,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
-                                child: Center(child: Text('Slider 2',style: TextStyle(fontSize: 37, color: Colors.white))),
-                              ),
-                            ),
-                          ),
+                  Text(
+                    'Obituarios recientes',
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
+                  ),
+                  SizedBox(height: 15),
+                  Text(
+                    'Entendemos que no siempre es posible presentar sus condolencias en persona, y queremos brindarle información sobre su ser querido usando la lista de obituarios aquí',
+                    style: TextStyle(fontWeight: FontWeight.normal, fontSize: 11),textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 15),
+                  Container(
+                    width: double.infinity,
+                    height: 100,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 6,
+                      separatorBuilder: (context, _)=> SizedBox(width: 12),
+                      itemBuilder: (context,index)=>buildCard(items: items[index]),
 
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: InkWell(
-                              onTap: (){},
-                              child: Container(
-                                width: 200,
-                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(20),color: Colors.deepOrange),
-                                child: Center(child: Text('Slider 3',style: TextStyle(fontSize: 37, color: Colors.white))),
-                              ),
-                            ),
-                          ),
-                        ],
-                      )
-                  */
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  ButtonBar(
+                      alignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Perform some action
+                          },
+                          child: const Text('Ver Todo'),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),
           ],
         ),
       ),
+
 
       //PROMOS
       ListWheelScrollView(
@@ -364,13 +405,14 @@ class _homePageState extends State<homePage> {
                       children: [
                         Image.network(
                             "https://scontent.floh3-1.fna.fbcdn.net/v/t1.6435-9/105405519_116333980119912_4298454532973809772_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9267fe&_nc_ohc=h0nxcGiL02MAX_AXNRm&_nc_ht=scontent.floh3-1.fna&oh=00_AfAjMHqF7dxH8plo0E5rT7v60Cx-KS1C6l5f-ux81weUSA&oe=64013555",
-                            height: 130),
+                            height: 120),
+                        SizedBox(width: 5),
                         Text(
                             "• Alimenta a tu cachorro hasta \n  sus 12 meses de edad.\n"
                             "• Contiene todas las proteínas,\n  vitaminas, minerales.\n"
                             "• Cumplir con la necesidad \n  nutricional de un cachorro.\n",
                             style: TextStyle(
-                                fontStyle: FontStyle.italic, fontSize: 12)),
+                                fontStyle: FontStyle.italic, fontSize: 11)),
                         ButtonBar(
                           alignment: MainAxisAlignment.end,
                           children: [
@@ -402,19 +444,21 @@ class _homePageState extends State<homePage> {
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4F1lUkMbPhIhEi83bP_EfyHIXlGBdZI3D7w&usqp=CAU",
                             height: 85),
+                        SizedBox(width: 5),
                         Text(
                             "• Revisiones\n"
                             "• Vacunación anual de Rabia.\n"
                             "• Vacuna de polivalente canina.\n"
-                            "• Vacunación de traqueobronquitis\n  infecciosa\n"
-                            "• Desparasitación interna trimestral\n"
-                            "• 20% de descuento en radiografia\n",
+                            "• Vacunación de traqueo-\n bronquitis infecciosa\n"
+                            "• Desparasitación interna\n  trimestral\n"
+                            "• 20% de descuento en \n  radiografia\n",
                             style: TextStyle(
                                 fontStyle: FontStyle.italic, fontSize: 10)),
                         ButtonBar(
@@ -447,14 +491,16 @@ class _homePageState extends State<homePage> {
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5ZDPoFm_SdXabGo2yn7_1Sfi9vlPGrp8OHQ&usqp=CAU",
                             height: 100),
+                        SizedBox(width: 10),
                         Text(
-                            "• Solo por el 19 y 20 de Marzo,\n  te ofrecemos el 20% de descuento\n  en Peluquería Canina",
+                            "• Solo por el 19 y 20 de \n  Marzo,te ofrecemos el 20%\n  de descuento en \n  Peluquería Canina",
                             style: TextStyle(
                                 fontStyle: FontStyle.italic, fontSize: 12)),
                         ButtonBar(
@@ -487,12 +533,14 @@ class _homePageState extends State<homePage> {
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5pxY54xKytFOhkT2KZ698Vs3I7Gh2IPDqFw&usqp=CAU",
-                            height: 120),
+                            height: 110),
+                        SizedBox(width: 10),
                         Text(
                             "Contamos con:\n\n"
                             "• ADIESTRAMIENTO CANINO\n"
@@ -532,14 +580,16 @@ class _homePageState extends State<homePage> {
                         style: TextStyle(color: Colors.black.withOpacity(0.6)),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.network(
                             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTztz5cA0mSmTpcYzNjxs8BEQrWL4sskVAhHQ&usqp=CAU",
                             height: 100),
+                        SizedBox(width: 10),
                         Text(
-                            "Hacemos tratamientos naturales \n de manto y mucho más \n Contamos con:\n\n"
+                            "• Hacemos tratamientos\n  naturales  de manto \n  y mucho más\n  Contamos con:\n\n"
                             "• PELUQUERÍA CANINA\n"
                             "• PASEOS CANINOS\n",
                             style: TextStyle(

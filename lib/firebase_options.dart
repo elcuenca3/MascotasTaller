@@ -50,20 +50,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAvLgAeeI47jTg5KwbGuhoTDhNIo1C6h-E',
-    appId: '1:834291257005:web:8ab7ed429a79a809c08024',
-    messagingSenderId: '834291257005',
-    projectId: 'puente-paraiso',
-    authDomain: 'puente-paraiso.firebaseapp.com',
-    storageBucket: 'puente-paraiso.appspot.com',
-    measurementId: 'G-W4BWHKRZ70',
+    apiKey: 'AIzaSyB2Os_9BksZ86r_8P7V0bLO2Qaa4BeOOZ0',
+    appId: '1:145808704707:web:7e221ff4f9fb8fbab9ce76',
+    messagingSenderId: '145808704707',
+    projectId: 'arcoiris-89a71',
+    authDomain: 'arcoiris-89a71.firebaseapp.com',
+    storageBucket: 'arcoiris-89a71.appspot.com',
+    measurementId: 'G-E1LQEJ6KG9',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAz6sg4EOZIozPYt420vCmE9-u6J60Axk4',
-    appId: '1:834291257005:android:49b8553fc28b8924c08024',
-    messagingSenderId: '834291257005',
-    projectId: 'puente-paraiso',
-    storageBucket: 'puente-paraiso.appspot.com',
+    apiKey: 'AIzaSyDqaPVBLGTHdYvGhcy1Xlm4yDp1SP8CG5E',
+    appId: '1:145808704707:android:60c4f4f42fa4b463b9ce76',
+    messagingSenderId: '145808704707',
+    projectId: 'arcoiris-89a71',
+    storageBucket: 'arcoiris-89a71.appspot.com',
   );
 }

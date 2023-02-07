@@ -13,18 +13,17 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Firebase.initializeApp(
       options: const FirebaseOptions(
-    apiKey: 'AIzaSyAz6sg4EOZIozPYt420vCmE9-u6J60Axk4',
-    appId: '1:834291257005:android:49b8553fc28b8924c08024',
-    messagingSenderId: '834291257005',
-    projectId: 'puente-paraiso',
-    storageBucket: 'puente-paraiso.appspot.com',
+    apiKey: 'AIzaSyDqaPVBLGTHdYvGhcy1Xlm4yDp1SP8CG5E',
+    appId: '1:145808704707:android:60c4f4f42fa4b463b9ce76',
+    messagingSenderId: '145808704707',
+    projectId: 'arcoiris-89a71',
+    storageBucket: 'arcoiris-89a71.appspot.com',
   ));
   return runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
 
   // This widget is the root of your application.
   @override
@@ -41,13 +40,11 @@ class MyApp extends StatelessWidget {
         "/login": (BuildContext context) => MyLogin(),
         "/home": (BuildContext context) => homePage(),
         "/agghuman": (BuildContext context) => agghuman(),
-
       },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
-
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -83,11 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // );
 
     return Scaffold(
-        backgroundColor: Color.fromARGB(255, 243, 234, 225),
-        body:
-          Center(child: WidgetTree()),
-
-        );
+      backgroundColor: Color.fromARGB(255, 243, 234, 225),
+      body: Center(child: WidgetTree()),
+    );
 
     // backgroundColor: Color.fromARGB(255, 243, 234, 225),
     // body: Center(

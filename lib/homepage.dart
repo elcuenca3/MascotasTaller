@@ -1,4 +1,5 @@
 import 'package:MascotasTaller/pruebas/ejemplo.dart';
+import 'package:MascotasTaller/pruebas/servicios.dart';
 import 'package:MascotasTaller/pruebas/mascota.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -18,41 +19,45 @@ class homePage extends StatefulWidget {
   @override
   _homePageState createState() => _homePageState();
 }
-class CardItem{
+
+class CardItem {
   final String Imagen;
   final String titulo;
 
   const CardItem({
-   required this.Imagen,
+    required this.Imagen,
     required this.titulo,
-});
+  });
 }
+
 class _homePageState extends State<homePage> {
+  Color _iconColor = Colors.grey;
+  bool _isFavorited = false;
+  void _toggleFavorite() {
+    setState(() {
+      _isFavorited = !_isFavorited;
+    });
+  }
+
+  bool _isPressed = false;
+  // IconButton iconx = IconButton(
+  //     icon: (_isFavorited ? Icon(Icons.favorite) : Icon(Icons.favorite_border)),
+  //     color: _isFavorited ? Colors.red : null,
+  //     onPressed: _toggleFavorite);
+
   static List<String> _images = [
     "assets/slider/p3.jpg",
     "assets/slider/p2.jpg",
     "assets/slider/p1.jpg",
   ];
 
-  List<CardItem> items=[
-    CardItem(
-        Imagen: 'assets/slider/ob1.jpg',
-        titulo: 'COKY'),
-    CardItem(
-        Imagen: 'assets/slider/ob2.jpg',
-        titulo: 'COCO'),
-    CardItem(
-        Imagen: 'assets/slider/ob3.jpg',
-        titulo: 'CHISPITA'),
-    CardItem(
-        Imagen: 'assets/slider/ob4.jpg',
-        titulo: 'BENJI'),
-    CardItem(
-        Imagen: 'assets/slider/ob5.jpg',
-        titulo: 'MICHU'),
-    CardItem(
-        Imagen: 'assets/slider/ob6.jpg',
-        titulo: 'BILLIE')
+  List<CardItem> items = [
+    CardItem(Imagen: 'assets/slider/ob1.jpg', titulo: 'COKY'),
+    CardItem(Imagen: 'assets/slider/ob2.jpg', titulo: 'COCO'),
+    CardItem(Imagen: 'assets/slider/ob3.jpg', titulo: 'CHISPITA'),
+    CardItem(Imagen: 'assets/slider/ob4.jpg', titulo: 'BENJI'),
+    CardItem(Imagen: 'assets/slider/ob5.jpg', titulo: 'MICHU'),
+    CardItem(Imagen: 'assets/slider/ob6.jpg', titulo: 'BILLIE')
   ];
 
   PageController? pageViewController;
@@ -68,23 +73,23 @@ class _homePageState extends State<homePage> {
     super.dispose();
   }
 
-  Future<Map<String, dynamic>?> selectFromFirebase(
-      String tipoPlan, String locales) async {
-    final snapshot = await FirebaseFirestore.instance
-        .collection("Servicios")
-        .doc(
-          tipoPlan,
-        )
-        .collection("Local")
-        .doc(locales)
-        .get();
+  // Future<Map<String, dynamic>?> selectFromFirebase(
+  //     String tipoPlan, String locales) async {
+  //   final snapshot = await FirebaseFirestore.instance
+  //       .collection("Servicios")
+  //       .doc(
+  //         tipoPlan,
+  //       )
+  //       .collection("Local")
+  //       .doc(locales)
+  //       .get();
 
-    Map<String, dynamic>? data = snapshot.data();
-    print(data);
-    print(data!['valor'] ?? "no hay data");
+  //   Map<String, dynamic>? data = snapshot.data();
+  //   print(data);
+  //   print(data!['valor'] ?? "no hay data");
 
-    return data;
-  }
+  //   return data;
+  // }
 
   int _selectedIndex = 1; // pagina que se muestra
   void _onItemTapped(int index) {
@@ -92,32 +97,52 @@ class _homePageState extends State<homePage> {
       _selectedIndex = index;
     });
   }
+
   _homePageState() {
+    
+    _isFavorited = false;
+    _isPressed = false;
+    Widget button() => Scaffold(
+          body: GestureDetector(
+            onTap: () {
+              setState(() {
+                _isPressed = !_isPressed;
+              });
+            },
+            child: Icon(
+              Icons.favorite,
+              color: _isPressed ? Colors.red : Colors.grey,
+            ),
+          ),
+        );
     Widget buildCard({
       required CardItem items,
     }) =>
         Container(
-            width: 200,
-          color: Color.fromARGB(255, 243, 234, 225),
-            child: Column(
+          width: 200,
+          color: Color.fromARGB(0, 255, 255, 255),
+          child: Column(
             children: [
               Expanded(
                   child: Image.asset(
-                      items.Imagen,
-                      fit: BoxFit.fitWidth,
-                    height: 50.0,)),
+                items.Imagen,
+                fit: BoxFit.fitWidth,
+                height: 60.0,
+              )),
               const SizedBox(height: 4),
-              Text(items.titulo,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20))
-          ],
-        ),
+              Text(items.titulo,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))
+            ],
+          ),
         );
-    var servicio1 = selectFromFirebase('Servicios', 'Alimentacion');
+    // var servicio1 = selectFromFirebase('Servicios', 'Alimentacion');
     // var servicio2 = selectFromFirebase('Servicios', 'Funeraria');
     // var servicio3 = selectFromFirebase('Servicios', 'Obituario');
 
     _widgetOptions = <Widget>[
       //SERVICIOS
-      Servicios(),
+      
+      Servicios1(),
       //HOME
       SingleChildScrollView(
         child: Column(
@@ -153,7 +178,9 @@ class _homePageState extends State<homePage> {
                   Text(
                     '¿Qué es Puente Arcoíris?',
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        fontStyle: FontStyle.italic),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 23, top: 23),
@@ -185,7 +212,10 @@ class _homePageState extends State<homePage> {
                   SizedBox(height: 10),
                   Text(
                     'Lo que tenemos para ofrecerte',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        fontStyle: FontStyle.italic),
                   ),
                   const SizedBox(
                     height: 20,
@@ -337,12 +367,17 @@ class _homePageState extends State<homePage> {
                   SizedBox(height: 15),
                   Text(
                     'Obituarios recientes',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25,fontStyle: FontStyle.italic),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25,
+                        fontStyle: FontStyle.italic),
                   ),
                   SizedBox(height: 15),
                   Text(
                     'Entendemos que no siempre es posible presentar sus condolencias en persona, y queremos brindarle información sobre su ser querido usando la lista de obituarios aquí',
-                    style: TextStyle(fontWeight: FontWeight.normal, fontSize: 11),textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontWeight: FontWeight.normal, fontSize: 17),
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 15),
                   Container(
@@ -351,30 +386,29 @@ class _homePageState extends State<homePage> {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: 6,
-                      separatorBuilder: (context, _)=> SizedBox(width: 12),
-                      itemBuilder: (context,index)=>buildCard(items: items[index]),
-
+                      separatorBuilder: (context, _) => SizedBox(width: 12),
+                      itemBuilder: (context, index) =>
+                          buildCard(items: items[index]),
                     ),
                   ),
                   SizedBox(height: 5),
                   ButtonBar(
-                      alignment: MainAxisAlignment.center,
-                      children: [
-                        ElevatedButton(
-                          onPressed: () {
-                            // Perform some action
-                          },
-                          child: const Text('Ver Todo'),
-                        ),
-                      ],
-                    ),
+                    alignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          // Perform some action
+                        },
+                        child: const Text('Ver Todo'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
           ],
         ),
       ),
-
 
       //PROMOS
       ListWheelScrollView(
@@ -393,7 +427,15 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.star),
+                      onTap: () => setState(() {
+                        _iconColor = _iconColor == Colors.grey
+                            ? Colors.amber
+                            : Colors.grey;
+                      }),
+                      leading: Icon(
+                        Icons.star,
+                        color: _iconColor,
+                      ),
                       title: const Text('Pro-can: Razas Pequeñas 454g'),
                       subtitle: Text(
                         'Pollo, cereales y leche',
@@ -436,7 +478,15 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.star),
+                      onTap: () => setState(() {
+                        _iconColor = _iconColor == Colors.grey
+                            ? Colors.amber
+                            : Colors.grey;
+                      }),
+                      leading: Icon(
+                        Icons.star,
+                        color: _iconColor,
+                      ),
                       title:
                           const Text('Plan de Seguro Veterinario en Vital Vet'),
                       subtitle: Text(
@@ -484,7 +534,15 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.star),
+                      onTap: () => setState(() {
+                        _iconColor = _iconColor == Colors.grey
+                            ? Colors.amber
+                            : Colors.grey;
+                      }),
+                      leading: Icon(
+                        Icons.star,
+                        color: _iconColor,
+                      ),
                       title: const Text('Promo Peluqueria Canina en Pekitas'),
                       subtitle: Text(
                         'Ven y aprovecha nuestra promoción',
@@ -526,7 +584,15 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.star),
+                      onTap: () => setState(() {
+                        _iconColor = _iconColor == Colors.grey
+                            ? Colors.amber
+                            : Colors.grey;
+                      }),
+                      leading: Icon(
+                        Icons.star,
+                        color: _iconColor,
+                      ),
                       title: const Text('Adiestra a tu mascota'),
                       subtitle: Text(
                         'Canes Loja adiestramiento Canino, Guarderia Canina y Tienda de Accesorios',
@@ -573,7 +639,15 @@ class _homePageState extends State<homePage> {
                 child: Column(
                   children: [
                     ListTile(
-                      leading: Icon(Icons.star),
+                      onTap: () => setState(() {
+                        _iconColor = _iconColor == Colors.grey
+                            ? Colors.amber
+                            : Colors.grey;
+                      }),
+                      leading: Icon(
+                        Icons.star,
+                        color: _iconColor,
+                      ),
                       title: const Text('Spa y Peluquería Canina Firulais'),
                       subtitle: Text(
                         'Somos un spa y peluquería canina de especialidad dedicados al cuidado de tu mascota',

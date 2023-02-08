@@ -26,7 +26,7 @@ class _FormPageState extends State<FormPage> {
   late String _tipo;
   late String _sexo;
   late String _raza;
-  List<String> _options = ['Perro', 'Gato'];
+  List<String> _options = ['Perro', 'Gato','Hamster'];
   String _selectedOption = "";
 
   FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -95,7 +95,7 @@ class _FormPageState extends State<FormPage> {
                     child: Text(option),
                   );
                 }).toList(),
-                onChanged: (value) => _tipo = value!,
+                onChanged: (value) => _tipo = value! ,
               ),
               TextFormField(
                 decoration: InputDecoration(labelText: "Sexo"),

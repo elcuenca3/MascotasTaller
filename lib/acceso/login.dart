@@ -66,7 +66,8 @@ class _MyLoginState extends State<MyLogin> {
         padding: EdgeInsets.all(16.0),child:ElevatedButton(
       onPressed:
           isLogin ? signInWithEmailAndPassword : createUserWithEmailAndPassword,
-      child: Text(isLogin ? "Login" : "Register"),
+      child: Text(isLogin ? "- Login -" : "- Register -",style: TextStyle(
+                                fontStyle: FontStyle.italic, fontSize: 18)),
     ));
   }
 
@@ -80,18 +81,20 @@ class _MyLoginState extends State<MyLogin> {
               MaterialPageRoute(builder: (context) => homePage()),
             );
           },
-          child: Text("Login_Sin_correo"),
+          child: Text("Entrar como Invitado"),
         ));
   }
 
   Widget _loginOrRegisterButton() {
     return TextButton(
+      
       onPressed: () {
         setState(() {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? "Register" : "Login", style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20)),
+      
+      child: Text(isLogin ? " Register " : "Login", style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20)),
     );
   }
 
@@ -144,7 +147,7 @@ class _MyLoginState extends State<MyLogin> {
                                 _entryField("Contraseña", _controllerPassword),
                           ),
                           _submitButton(),
-                          //entrar(),
+                          entrar(),
                           _loginOrRegisterButton(),
                         ],
                       ),

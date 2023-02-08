@@ -17,6 +17,9 @@ class _mascotaState extends State<mascota> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Mascotas Registradas'),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -38,19 +41,20 @@ class _mascotaState extends State<mascota> {
                       children: [
                         Card(
                           child: ListTile(
-                            title: Text(document['nombre'] +
+                            title: Text("Nombre: "+document['nombre'] +
                                 " " +
-                                document['tipo']),
-                            trailing: ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => mascotasagg()),
-                                );
-                              },
-                              child: Text("Agregar mascota"),
-                            ),
+                                "\nTipo :"+document['tipo']
+                                +"\nEdad: "+document['edad'] +" Años"),
+                            // trailing: ElevatedButton(
+                            //   onPressed: () {
+                            //     Navigator.push(
+                            //       context,
+                            //       MaterialPageRoute(
+                            //           builder: (context) => mascotasagg()),
+                            //     );
+                            //   },
+                            //   child: Text("Agregar mascota"),
+                            // ),
                           ),
                         ),
                       ],
@@ -60,15 +64,15 @@ class _mascotaState extends State<mascota> {
               },
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => agghuman()),
-              );
-            },
-            child: Text("Agregar humano"),
-          ),
+          // ElevatedButton(
+          //   onPressed: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) => agghuman()),
+          //     );
+          //   },
+          //   child: Text("Agregar humano"),
+          // ),
         ],
       ),
     );

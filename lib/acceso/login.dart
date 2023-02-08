@@ -91,7 +91,7 @@ class _MyLoginState extends State<MyLogin> {
           isLogin = !isLogin;
         });
       },
-      child: Text(isLogin ? "Register estado" : "Login Estado"),
+      child: Text(isLogin ? "Register" : "Login", style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20)),
     );
   }
 
@@ -144,7 +144,7 @@ class _MyLoginState extends State<MyLogin> {
                                 _entryField("Contraseña", _controllerPassword),
                           ),
                           _submitButton(),
-                          entrar(),
+                          //entrar(),
                           _loginOrRegisterButton(),
                         ],
                       ),

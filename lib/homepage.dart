@@ -226,7 +226,7 @@ class _homePageState extends State<homePage> {
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
-                        color: Colors.lightBlueAccent,
+                        color: Color.fromARGB(220, 123, 212, 253),
                         child: SizedBox(
                           width: 180,
                           height: 102,
@@ -258,7 +258,7 @@ class _homePageState extends State<homePage> {
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
-                        color: Colors.lightBlueAccent,
+                        color:Color.fromARGB(220, 123, 212, 253),
                         child: SizedBox(
                           width: 180,
                           height: 102,
@@ -294,7 +294,7 @@ class _homePageState extends State<homePage> {
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
-                        color: Colors.lightBlueAccent,
+                        color:Color.fromARGB(220, 123, 212, 253),
                         child: SizedBox(
                           width: 180,
                           height: 102,
@@ -326,7 +326,7 @@ class _homePageState extends State<homePage> {
                       Card(
                         elevation: 20,
                         shadowColor: Colors.black,
-                        color: Colors.lightBlueAccent,
+                        color:Color.fromARGB(220, 123, 212, 253),
                         child: SizedBox(
                           width: 180,
                           height: 102,
@@ -376,7 +376,7 @@ class _homePageState extends State<homePage> {
                   Text(
                     'Entendemos que no siempre es posible presentar sus condolencias en persona, y queremos brindarle información sobre su ser querido usando la lista de obituarios aquí',
                     style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 17),
+                        TextStyle(fontWeight: FontWeight.normal, fontSize: 14),
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 15),

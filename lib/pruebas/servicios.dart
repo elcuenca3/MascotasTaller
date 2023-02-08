@@ -36,7 +36,7 @@ class _PerfilesState extends State<Servicios1> {
                         height: 110,
                         fit: BoxFit.cover,
                       ),
-                      title: Text(document['title']),
+                      title: Text(document['title'], style: TextStyle(fontStyle: FontStyle.italic,fontSize: 20),),
                       subtitle: Text(document['description']),
                     ),
                     ButtonBar(

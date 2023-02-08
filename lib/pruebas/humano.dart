@@ -1,4 +1,5 @@
 import 'package:MascotasTaller/pruebas/humanoagg.dart';
+import 'package:MascotasTaller/pruebas/mascota.dart';
 import 'package:MascotasTaller/pruebas/mascotagg.dart';
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
@@ -37,13 +38,13 @@ class _PerfilesState extends State<Perfiles> {
                     return Column(
                       children: [
                         Card(
-
-                          
                           child: ListTile(
                             leading: Icon(Icons.account_box_rounded),
-                            title: Text("Nombre: "+document['nombre'] +
+                            title: Text("Nombre: " +
+                                document['nombre'] +
                                 " " +
-                                document['apellido'] +"\n"),
+                                document['apellido'] +
+                                "\n"),
                             trailing: ElevatedButton(
                               onPressed: () {
                                 Navigator.push(
@@ -71,6 +72,15 @@ class _PerfilesState extends State<Perfiles> {
               );
             },
             child: Text("Agregar humano"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => mascota()),
+              );
+            },
+            child: Text("Revisar Mascotas"),
           ),
         ],
       ),
